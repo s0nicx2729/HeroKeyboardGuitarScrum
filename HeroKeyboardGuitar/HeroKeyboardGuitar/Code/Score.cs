@@ -21,4 +21,5 @@ public class Score {
     public void Miss() {
         streak = 0;
     }
+
 }

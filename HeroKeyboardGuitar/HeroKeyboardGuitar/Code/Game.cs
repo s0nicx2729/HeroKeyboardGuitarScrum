@@ -31,7 +31,13 @@ public class Game {
     public Bitmap GetBg() {
         return bgMap.GetValueOrDefault(CurSong.Genre, null);
     }
+    public static Bitmap GetBg(GenreType genre) {
+        return instance.bgMap[genre];
+    }
     public static void SetCurSong(Song song) {
         GetInstance().CurSong = song;
+    }
+    public static void SetCurSong(string songFilePath, GenreType genre) {
+        instance.CurSong = new(songFilePath, genre);
     }
 }

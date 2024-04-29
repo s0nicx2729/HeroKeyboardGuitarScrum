@@ -24,158 +24,88 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            plot = new ScottPlot.WinForms.FormsPlot();
-            label1 = new System.Windows.Forms.Label();
             tmrPlay = new System.Windows.Forms.Timer(components);
-            btnBeatPress = new System.Windows.Forms.Button();
-            label2 = new System.Windows.Forms.Label();
-            btnPlay = new System.Windows.Forms.Button();
-            cmbSongChoice = new System.Windows.Forms.ComboBox();
-            label3 = new System.Windows.Forms.Label();
-            nudThreshold = new System.Windows.Forms.NumericUpDown();
-            label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)nudThreshold).BeginInit();
+            picTarget = new System.Windows.Forms.PictureBox();
+            lblScore = new System.Windows.Forms.Label();
+            tmrScoreShrink = new System.Windows.Forms.Timer(components);
+            panBg = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)picTarget).BeginInit();
+            panBg.SuspendLayout();
             SuspendLayout();
-            // 
-            // plot
-            // 
-            plot.DisplayScale = 1F;
-            plot.Location = new System.Drawing.Point(10, 10);
-            plot.Name = "plot";
-            plot.Size = new System.Drawing.Size(1035, 205);
-            plot.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = System.Drawing.Color.Transparent;
-            label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label1.ForeColor = System.Drawing.Color.White;
-            label1.Location = new System.Drawing.Point(185, 218);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(96, 37);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
             // 
             // tmrPlay
             // 
-            tmrPlay.Interval = 5;
+            tmrPlay.Interval = 50;
             tmrPlay.Tick += tmrPlay_Tick;
             // 
-            // btnBeatPress
+            // picTarget
             // 
-            btnBeatPress.BackColor = System.Drawing.Color.FromArgb(192, 255, 192);
-            btnBeatPress.Location = new System.Drawing.Point(170, 387);
-            btnBeatPress.Name = "btnBeatPress";
-            btnBeatPress.Size = new System.Drawing.Size(183, 169);
-            btnBeatPress.TabIndex = 2;
-            btnBeatPress.UseVisualStyleBackColor = false;
+            picTarget.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            picTarget.BackgroundImage = Properties.Resources._default;
+            picTarget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            picTarget.Location = new System.Drawing.Point(372, 498);
+            picTarget.Name = "picTarget";
+            picTarget.Size = new System.Drawing.Size(120, 120);
+            picTarget.TabIndex = 3;
+            picTarget.TabStop = false;
             // 
-            // label2
+            // lblScore
             // 
-            label2.BackColor = System.Drawing.Color.FromArgb(192, 192, 255);
-            label2.Location = new System.Drawing.Point(1004, 442);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(40, 34);
-            label2.TabIndex = 3;
+            lblScore.BackColor = System.Drawing.Color.Transparent;
+            lblScore.Dock = System.Windows.Forms.DockStyle.Bottom;
+            lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            lblScore.ForeColor = System.Drawing.Color.White;
+            lblScore.Location = new System.Drawing.Point(0, 391);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new System.Drawing.Size(1237, 89);
+            lblScore.TabIndex = 5;
+            lblScore.Text = "0";
+            lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblScore.Click += lblScore_Click;
             // 
-            // btnPlay
+            // tmrScoreShrink
             // 
-            btnPlay.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnPlay.Location = new System.Drawing.Point(946, 218);
-            btnPlay.Name = "btnPlay";
-            btnPlay.Size = new System.Drawing.Size(98, 41);
-            btnPlay.TabIndex = 4;
-            btnPlay.Text = "Play";
-            btnPlay.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            btnPlay.UseVisualStyleBackColor = true;
-            btnPlay.Click += btnPlay_Click;
+            tmrScoreShrink.Enabled = true;
+            tmrScoreShrink.Tick += tmrScoreShrink_Tick;
             // 
-            // cmbSongChoice
+            // panBg
             // 
-            cmbSongChoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cmbSongChoice.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            cmbSongChoice.FormattingEnabled = true;
-            cmbSongChoice.Items.AddRange(new object[] { "Beat", "Mario" });
-            cmbSongChoice.Location = new System.Drawing.Point(755, 222);
-            cmbSongChoice.Name = "cmbSongChoice";
-            cmbSongChoice.Size = new System.Drawing.Size(186, 33);
-            cmbSongChoice.TabIndex = 5;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = System.Drawing.Color.Transparent;
-            label3.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label3.ForeColor = System.Drawing.Color.White;
-            label3.Location = new System.Drawing.Point(571, 218);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(182, 37);
-            label3.TabIndex = 6;
-            label3.Text = "Song Choice:";
-            label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // nudThreshold
-            // 
-            nudThreshold.DecimalPlaces = 2;
-            nudThreshold.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            nudThreshold.Increment = new decimal(new int[] { 5, 0, 0, 131072 });
-            nudThreshold.Location = new System.Drawing.Point(755, 263);
-            nudThreshold.Maximum = new decimal(new int[] { 1, 0, 0, 0 });
-            nudThreshold.Name = "nudThreshold";
-            nudThreshold.Size = new System.Drawing.Size(75, 33);
-            nudThreshold.TabIndex = 7;
-            nudThreshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            nudThreshold.Value = new decimal(new int[] { 7, 0, 0, 131072 });
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = System.Drawing.Color.Transparent;
-            label4.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label4.ForeColor = System.Drawing.Color.White;
-            label4.Location = new System.Drawing.Point(539, 255);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(216, 37);
-            label4.TabIndex = 8;
-            label4.Text = "Freq Threshold:";
-            label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            panBg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panBg.Controls.Add(lblScore);
+            panBg.Dock = System.Windows.Forms.DockStyle.Top;
+            panBg.Location = new System.Drawing.Point(0, 0);
+            panBg.Name = "panBg";
+            panBg.Size = new System.Drawing.Size(1237, 480);
+            panBg.TabIndex = 6;
             // 
             // FrmMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Black;
-            ClientSize = new System.Drawing.Size(1057, 699);
-            Controls.Add(label4);
-            Controls.Add(nudThreshold);
-            Controls.Add(label3);
-            Controls.Add(cmbSongChoice);
-            Controls.Add(btnPlay);
-            Controls.Add(label2);
-            Controls.Add(btnBeatPress);
-            Controls.Add(label1);
-            Controls.Add(plot);
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            ClientSize = new System.Drawing.Size(1237, 644);
+            Controls.Add(panBg);
+            Controls.Add(picTarget);
             Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             Name = "FrmMain";
-            Text = "Form1";
+            Text = "Play Song";
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            FormClosing += FrmMain_FormClosing;
             Load += FrmMain_Load;
-            ((System.ComponentModel.ISupportInitialize)nudThreshold).EndInit();
+            KeyDown += FrmMain_KeyDown;
+            KeyPress += FrmMain_KeyPress;
+            KeyUp += FrmMain_KeyUp;
+            ((System.ComponentModel.ISupportInitialize)picTarget).EndInit();
+            panBg.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private ScottPlot.WinForms.FormsPlot plot;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer tmrPlay;
-        private System.Windows.Forms.Button btnBeatPress;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnPlay;
-        private System.Windows.Forms.ComboBox cmbSongChoice;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown nudThreshold;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox picTarget;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Timer tmrScoreShrink;
+        private System.Windows.Forms.Panel panBg;
     }
 }

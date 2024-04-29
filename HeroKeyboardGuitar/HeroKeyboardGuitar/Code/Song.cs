@@ -8,12 +8,15 @@ namespace HeroKeyboardGuitar;
 
 public class Audio {
     private double[] samples;
-    private double audioLen;
     private WaveOutEvent outputDevice;
-    private long streamLength;
     private int sampleRate;
     private string filePath;
     private AudioFileReader fileReader;
+    private List<double> clusters;
+
+    public List<double> ActionTimes { get; private set; }
+    public double AudioLengthInMs { get; private set; }
+    public long StreamLengthInBytes { get; private set; }
 
     public Audio(string filePath) {
         this.filePath = filePath;
@@ -28,19 +31,74 @@ public class Audio {
             samplesList.AddRange(buffer.Take(samplesRead).Select(x => (double)x));
         }
         samples = samplesList.ToArray();
-        audioLen = fileReader.TotalTime.TotalMilliseconds;
-        streamLength = fileReader.Length;
+        AudioLengthInMs = fileReader.TotalTime.TotalMilliseconds;
+        StreamLengthInBytes = fileReader.Length;
         outputDevice = new();
+
+        ActionTimes = new();
+        clusters = new();
+        List<double> curCluster = new();
+        double THRES = 0.4;
+        bool inCluster = false;
+        const int MAX_TOLERANCE = 500;
+        int curTolerance = 0;
+        int clusterStart = -1;
+        for (int i = 0; i < samples.Length; i++) {
+            var sample = Math.Abs(samples[i]);
+            if (!inCluster) {
+                if (Math.Abs(sample) > THRES) { // start
+                    inCluster = true;
+                    curTolerance = 0;
+                    curCluster = new();
+                    clusterStart = i;
+                    clusters.Add(THRES);
+                    curCluster.Add(sample);
+                }
+                else {
+                    clusters.Add(0.0);
+                }
+            }
+            else {
+                if (Math.Abs(sample) < THRES / 1.5) {
+                    curTolerance++;
+                    if (curTolerance >= MAX_TOLERANCE) {
+                        inCluster = false;
+                        int actionIndex = clusterStart + curCluster.IndexOf(curCluster.Max());
+                        double actionTime = (actionIndex / (double)samples.Length) * AudioLengthInMs;
+                        ActionTimes.Add(actionTime);
+                        clusters.Add(0.0);
+                        curCluster.Add(0.0);
+                    }
+                    else {
+                        clusters.Add(THRES);
+                        curCluster.Add(sample);
+                    }
+                }
+                else {
+                    curTolerance = 0;
+                    clusters.Add(THRES);
+                    curCluster.Add(sample);
+                }
+            }
+        }
+    }
+    public void DebugFileWrite() {
+        File.WriteAllText("samples.txt", string.Join(',', samples.Select(x => Math.Abs(x))));
+        File.WriteAllText("clusters.txt", string.Join(',', clusters));
+        File.WriteAllText("actiontimes.txt", string.Join(',', ActionTimes));
     }
     public void WriteSamplesToFile(string filePath) {
         File.WriteAllText(filePath, string.Join(',', samples));
     }
     public int GetPosition() {
-        double perComplete = outputDevice.GetPosition() / (double)streamLength;
+        double perComplete = outputDevice.GetPosition() / (double)StreamLengthInBytes;
         return (int)Math.Clamp(perComplete * samples.Length, 0, samples.Length - 1);
     }
     public double GetSample(int index) {
         return samples[index];
+    }
+    public double GetCluster(int index) {
+        return clusters[index];
     }
     public int GetNumberOfSamples() {
         return samples.Length;
@@ -50,12 +108,8 @@ public class Audio {
         outputDevice.Init(fileReader);
         outputDevice.Play();
     }
-    public double TotalSongTimeInMs() {
-        return audioLen;
-    }
-
-    public void Foo(int number) {
-        throw new System.NotImplementedException();
+    public void Stop() {
+        outputDevice.Stop();
     }
 }
 
@@ -63,13 +117,14 @@ public class Song {
     private string title;
     public GenreType Genre { get; private set; }
     private Dictionary<int, Action> rewardMap;
-    private string audioFile;
+    private string filePath;
     private List<Note> notes;
     public Audio Audio { get; private set; }
 
-    public Song(string fileName, GenreType genre) {
-        this.audioFile = fileName;
-        Audio = new(fileName);
+    public Song(string filePath, GenreType genre) {
+        this.filePath = filePath;
+        title = Path.GetFileNameWithoutExtension(filePath);
+        Audio = new(filePath);
         Genre = genre;
     }
 
@@ -78,5 +133,9 @@ public class Song {
     }
 
     public void Restart() {
+    }
+
+    public void Stop() {
+        Audio.Stop();
     }
 }

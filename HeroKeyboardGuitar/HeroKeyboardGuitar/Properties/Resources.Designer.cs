@@ -63,6 +63,16 @@ namespace HeroKeyboardGuitar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _default {
+            get {
+                object obj = ResourceManager.GetObject("_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap classical {
             get {
                 object obj = ResourceManager.GetObject("classical", resourceCulture);
@@ -76,6 +86,36 @@ namespace HeroKeyboardGuitar.Properties {
         internal static System.Drawing.Bitmap country {
             get {
                 object obj = ResourceManager.GetObject("country", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap marker {
+            get {
+                object obj = ResourceManager.GetObject("marker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap marker_hit {
+            get {
+                object obj = ResourceManager.GetObject("marker_hit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap marker_miss {
+            get {
+                object obj = ResourceManager.GetObject("marker_miss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,6 +143,16 @@ namespace HeroKeyboardGuitar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pressed {
+            get {
+                object obj = ResourceManager.GetObject("pressed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rnb {
             get {
                 object obj = ResourceManager.GetObject("rnb", resourceCulture);
@@ -116,6 +166,16 @@ namespace HeroKeyboardGuitar.Properties {
         internal static System.Drawing.Bitmap rock {
             get {
                 object obj = ResourceManager.GetObject("rock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap title {
+            get {
+                object obj = ResourceManager.GetObject("title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
