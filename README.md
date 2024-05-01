@@ -16,3 +16,6 @@ To install NAudio package:
 
 To install NAudio Winforms package:
   NuGet\Install-Package NAudio.WinForms -Version 2.2.1
+
+To install Octave for audio sample analysis (code is included in repo):
+  https://octave.org/download
