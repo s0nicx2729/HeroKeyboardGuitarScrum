@@ -10,8 +10,15 @@
 
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="NAudio.WinForms" Version="2.2.1" />
     <PackageReference Include="ScottPlot" Version="5.0.27" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.27" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AudioAnalyzing">
+      <HintPath>..\AudioAnalyzing\bin\Debug\net6.0-windows\AudioAnalyzing.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

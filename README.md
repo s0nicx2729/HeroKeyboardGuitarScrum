@@ -12,5 +12,7 @@ To install ScottPlot Winforms package:
   NuGet\Install-Package ScottPlot.WinForms -Version 5.0.29
 
 To install NAudio package:
-  NuGet\Install-Package NAudio.WinForms -Version 2.2.1
+  NuGet\Install-Package NAudio -Version 2.2.1
 
+To install NAudio Winforms package:
+  NuGet\Install-Package NAudio.WinForms -Version 2.2.1
