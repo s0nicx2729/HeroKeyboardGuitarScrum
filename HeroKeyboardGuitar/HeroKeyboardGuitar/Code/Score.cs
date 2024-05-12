@@ -32,7 +32,7 @@ public class Score {
     }
 
     /// <summary>
-    /// Add to the current score
+    /// Add to the current score or streak
     /// </summary>
     /// <param name="amount">Amount to add</param>
     public void Add(int amount) {
