@@ -14,7 +14,6 @@ internal partial class FrmMain : Form
     private const float noteSpeed = 0.5f;
     private Audio curSong;
     private Score score;
-    private int lives;
 
     // for double buffering
     protected override CreateParams CreateParams
@@ -41,7 +40,6 @@ internal partial class FrmMain : Form
         panBg.BackgroundImage = Game.GetInstance().GetBg();
         panBg.Height = (int)(Height * 0.8);
         curSong = Game.GetInstance().CurSong;
-        lives = 10;
         notes = new();
         foreach (var actionTime in curSong.ActionTimes)
         {
@@ -89,11 +87,10 @@ internal partial class FrmMain : Form
             if (note.CheckMiss(picTarget))
             {
                 score.Miss();
-                lives -= 1;
                 streakVal.Visible = false;
-                if (lives <= 0)
+                if (score.Lives <= 0)
                 {
-                    curSong.Stop();
+                    //TODO: Create a GameOver screen that stops the song and gameplay. Has a button to restart the current song. Below is temporary and for testing.
                     Ending.Text = "GAME OVER";
                     Ending.Visible = true;
                 }
@@ -116,7 +113,6 @@ internal partial class FrmMain : Form
         {
             if (note.CheckHit(picTarget))
             {
-                lives += 1;
                 score.Add(10);
                 lblScore.Text = score.Amount.ToString();
                 lblScore.Font = new("Arial", 42);

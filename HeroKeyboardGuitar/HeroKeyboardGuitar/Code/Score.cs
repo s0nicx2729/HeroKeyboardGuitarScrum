@@ -15,11 +15,17 @@ public class Score {
     public int Streak { get; private set; }
 
     /// <summary>
+    /// Current amount of lives. Can gain and lose. Missing and hitting notes will decrease
+    /// </summary>
+    public int Lives { get; private set; }
+
+    /// <summary>
     /// initializes both amount and streak to 0
     /// </summary>
     public Score() {
         Amount = 0;
         Streak = 0;
+        Lives = 10;
     }
 
     /// <summary>
@@ -38,6 +44,11 @@ public class Score {
     public void Add(int amount) {
         Amount += amount;
         Streak++;
+        if (Lives < 10)
+        {
+            Lives++;
+        }
+
     }
 
     /// <summary>
@@ -45,5 +56,6 @@ public class Score {
     /// </summary>
     public void Miss() {
         Streak = 0;
+        Lives--;
     }
 }
