@@ -1,4 +1,5 @@
 ﻿using HeroKeyboardGuitar.Properties;
+using System;
 using System.Windows.Forms;
 
 namespace HeroKeyboardGuitar;
@@ -40,6 +41,8 @@ public class Note {
 
     private double xPos;
 
+    private Timer destructionTimer;
+
     /// <summary>
     /// Ctor. Sets state to traveling
     /// </summary>
@@ -49,13 +52,29 @@ public class Note {
         Pic = pic;
         State = NoteState.TRAVELING;
         this.xPos = xPos;
+        this.destructionTimer = new Timer();
     }
+
+    /// <summary>
+    /// A timer for when to destroy a note.
+    /// </summary>
+    public void StartDestructionTimer()
+    {
+        this.destructionTimer.Interval = 500; // Set the interval (in milliseconds) for self-destruction
+        this.destructionTimer.Tick += DestructionTimer_Tick;
+        this.destructionTimer.Start();
+     }
 
     /// <summary>
     /// Destroys picture box
     /// </summary>
     public void Dispose() {
         Pic.Dispose();
+        if (destructionTimer != null)
+        {
+            this.destructionTimer.Stop(); // Stop the destruction timer
+            this.destructionTimer.Dispose(); // Dispose the timer object
+        }
     }
 
     /// <summary>
@@ -100,5 +119,15 @@ public class Note {
         else {
             return false;
         }
+    }
+
+    /// <summary>
+    /// Disposes the note after the timer hits 0.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void DestructionTimer_Tick(object sender, EventArgs e)
+    {
+        Dispose();
     }
 }

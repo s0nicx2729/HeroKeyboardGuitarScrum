@@ -14,6 +14,8 @@ internal partial class FrmMain : Form
     private const float noteSpeed = 0.5f;
     private Audio curSong;
     private Score score;
+    FrmScore scoreBoard = new FrmScore();
+
 
     // for double buffering
     protected override CreateParams CreateParams
@@ -29,14 +31,13 @@ internal partial class FrmMain : Form
     public FrmMain()
     {
         InitializeComponent();
+        scoreBoard.Show();
+        scoreBoard.TopMost = true;
     }
 
     public void FrmMain_Load(object sender, EventArgs e)
     {
         score = new();
-        lblScore.Text = score.Amount.ToString();
-        streakVal.Text = score.Streak.ToString();
-        streakVal.Visible = false;
         panBg.BackgroundImage = Game.GetInstance().GetBg();
         panBg.Height = (int)(Height * 0.8);
         curSong = Game.GetInstance().CurSong;
@@ -84,10 +85,13 @@ internal partial class FrmMain : Form
         foreach (var note in notes)
         {
             note.Move(tmrPlay.Interval * (noteSpeed * 1.3));
+            
             if (note.CheckMiss(picTarget))
             {
                 score.Miss();
-                streakVal.Visible = false;
+                note.StartDestructionTimer();
+                scoreBoard.StreakB = score.Streak.ToString();
+
                 if (score.Lives <= 0)
                 {
                     //TODO: Create a GameOver screen that stops the song and gameplay. Has a button to restart the current song. Below is temporary and for testing.
@@ -107,42 +111,57 @@ internal partial class FrmMain : Form
         }
     }
 
+    /*
     private void FrmMain_KeyPress(object sender, KeyPressEventArgs e)
     {
-        foreach (var note in notes)
+        if (e.KeyChar == 32)
         {
-            if (note.CheckHit(picTarget))
+            foreach (var note in notes)
             {
-                score.Add(10);
-                lblScore.Text = score.Amount.ToString();
-                lblScore.Font = new("Arial", 42);
-                if (score.Streak < 3)
+                if (note.CheckHit(picTarget))
                 {
-                    streakVal.Visible = false;
+                    score.Add(10);
+                    note.StartDestructionTimer();
+                    scoreBoard.ScoreB = score.Amount.ToString();
+                    scoreBoard.StreakB = score.Streak.ToString();
+
+                    break;
                 }
-                else
-                {
-                    streakVal.Visible = true;
-                    streakVal.Text = score.Streak.ToString();
-                    streakVal.Font = new("Arial", 42);
-                }
-                break;
             }
         }
+            
     }
+    */
 
     private void FrmMain_KeyDown(object sender, KeyEventArgs e)
     {
+        if (e.KeyCode == Keys.Space)
+        {
+            foreach (var note in notes)
+            {
+                if (note.CheckHit(picTarget))
+                {
+                    score.Add(10);
+                    note.StartDestructionTimer();
+                    scoreBoard.ScoreB = score.Amount.ToString();
+                    scoreBoard.StreakB = score.Streak.ToString();
+
+                    break;
+                }
+            }
+        }
         picTarget.BackgroundImage = Resources.pressed;
     }
 
     private void FrmMain_KeyUp(object sender, KeyEventArgs e)
     {
         picTarget.BackgroundImage = Resources._default;
+
     }
 
     private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
     {
         Game.GetInstance().CurSong.Stop();
+        scoreBoard.Close();
     }
 }
