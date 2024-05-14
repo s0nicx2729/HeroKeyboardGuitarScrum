@@ -145,12 +145,4 @@ internal partial class FrmMain : Form
     {
         Game.GetInstance().CurSong.Stop();
     }
-
-    private void tmrScoreShrink_Tick(object sender, EventArgs e)
-    {
-        if (lblScore.Font.Size > 20)
-        {
-            lblScore.Font = new("Arial", lblScore.Font.Size - 1);
-        }
-    }
 }

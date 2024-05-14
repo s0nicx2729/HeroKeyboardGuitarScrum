@@ -67,11 +67,6 @@
             lblScore.Text = "0";
             lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tmrScoreShrink
-            // 
-            tmrScoreShrink.Enabled = true;
-            tmrScoreShrink.Tick += tmrScoreShrink_Tick;
-            // 
             // panBg
             // 
             panBg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
