@@ -129,7 +129,7 @@
             // 
             streakVal.Anchor = System.Windows.Forms.AnchorStyles.None;
             streakVal.BackColor = System.Drawing.Color.Transparent;
-            streakVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            streakVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             streakVal.ForeColor = System.Drawing.Color.White;
             streakVal.Location = new System.Drawing.Point(1087, 249);
             streakVal.Name = "streakVal";
