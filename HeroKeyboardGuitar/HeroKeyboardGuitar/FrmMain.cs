@@ -111,28 +111,6 @@ internal partial class FrmMain : Form
         }
     }
 
-    /*
-    private void FrmMain_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        if (e.KeyChar == 32)
-        {
-            foreach (var note in notes)
-            {
-                if (note.CheckHit(picTarget))
-                {
-                    score.Add(10);
-                    note.StartDestructionTimer();
-                    scoreBoard.ScoreB = score.Amount.ToString();
-                    scoreBoard.StreakB = score.Streak.ToString();
-
-                    break;
-                }
-            }
-        }
-            
-    }
-    */
-
     private void FrmMain_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Space)
