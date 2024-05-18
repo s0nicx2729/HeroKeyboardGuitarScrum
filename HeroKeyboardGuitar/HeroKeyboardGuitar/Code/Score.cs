@@ -13,6 +13,7 @@ public class Score {
     /// Current streak, i.e. consecutive hit notes without a miss
     /// </summary>
     public int Streak { get; private set; }
+    public int Multiplier { get; private set; }
 
     /// <summary>
     /// Current amount of lives. Can gain and lose. Missing and hitting notes will decrease
@@ -25,6 +26,7 @@ public class Score {
     public Score() {
         Amount = 0;
         Streak = 0;
+        Multiplier = 1;
         Lives = 10;
     }
 
@@ -48,7 +50,18 @@ public class Score {
         {
             Lives++;
         }
-
+        if (Streak >= 10 && Streak < 20)
+        {
+            Multiplier = 2;
+        }
+        if (Streak >= 20 && Streak < 30)
+        {
+            Multiplier = 3;
+        }
+        if (Streak >= 30)
+        {
+            Multiplier = 4;
+        }
     }
 
     /// <summary>
@@ -57,5 +70,6 @@ public class Score {
     public void Miss() {
         Streak = 0;
         Lives--;
+        Multiplier = 1;
     }
 }

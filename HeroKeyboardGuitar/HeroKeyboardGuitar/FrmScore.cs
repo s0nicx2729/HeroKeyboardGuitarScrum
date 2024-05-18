@@ -47,5 +47,17 @@ namespace HeroKeyboardGuitar
                 this.streakVal.Text = value;
             }
         }
+
+        public string MultiplierB
+        {
+            get
+            {
+                return this.MultiplierVal.Text;
+            }
+            set
+            {
+                this.MultiplierVal.Text = value;
+            }
+        }
     }
 }

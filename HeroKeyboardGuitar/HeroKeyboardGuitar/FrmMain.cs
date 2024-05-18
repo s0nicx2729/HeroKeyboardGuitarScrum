@@ -119,12 +119,42 @@ internal partial class FrmMain : Form
             {
                 if (note.CheckHit(picTarget))
                 {
-                    score.Add(10);
-                    note.StartDestructionTimer();
-                    scoreBoard.ScoreB = score.Amount.ToString();
-                    scoreBoard.StreakB = score.Streak.ToString();
-
-                    break;
+                    if (score.Streak < 10)
+                    {
+                        score.Add(10);
+                        note.StartDestructionTimer();
+                        scoreBoard.ScoreB = score.Amount.ToString();
+                        scoreBoard.StreakB = score.Streak.ToString();
+                        scoreBoard.MultiplierB = score.Multiplier.ToString();
+                        break;
+                    }
+                    if (score.Streak >= 10 && score.Streak < 20)
+                    {
+                        score.Add(20);
+                        note.StartDestructionTimer();
+                        scoreBoard.ScoreB = score.Amount.ToString();
+                        scoreBoard.StreakB = score.Streak.ToString();
+                        scoreBoard.MultiplierB = score.Multiplier.ToString();
+                        break;
+                    }
+                    if (score.Streak >= 20 && score.Streak < 30)
+                    {
+                        score.Add(30);
+                        note.StartDestructionTimer();
+                        scoreBoard.ScoreB = score.Amount.ToString();
+                        scoreBoard.StreakB = score.Streak.ToString();
+                        scoreBoard.MultiplierB = score.Multiplier.ToString();
+                        break;
+                    }
+                    if (score.Streak >= 30)
+                    {
+                        score.Add(40);
+                        note.StartDestructionTimer();
+                        scoreBoard.ScoreB = score.Amount.ToString();
+                        scoreBoard.StreakB = score.Streak.ToString();
+                        scoreBoard.MultiplierB = score.Multiplier.ToString();
+                        break;
+                    }
                 }
             }
         }
