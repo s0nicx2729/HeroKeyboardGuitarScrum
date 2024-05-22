@@ -12,12 +12,12 @@ namespace HeroKeyboardGuitar;
 internal partial class FrmMain : Form
 {
     private List<Note> notes;
-    private const float noteSpeed = 0.5f;
+    private const float noteSpeed = 0.35f;
     private Audio curSong;
     private Score score;
     FrmScore scoreBoard = new FrmScore();
-    public bool m_right = true;
-    public bool m_left = true;
+    public bool m_right = false;
+    public bool m_left = false;
 
 
     // for double buffering
@@ -42,8 +42,6 @@ internal partial class FrmMain : Form
     {
         score = new();
         Random random = new();
-        //panBg.BackgroundImage = Game.GetInstance().GetBg();
-        //panBg.Height = (int)(Height * 0.8);
         curSong = Game.GetInstance().CurSong;
         const int noteSize = 50;
         notes = new();
@@ -68,7 +66,23 @@ internal partial class FrmMain : Form
                     continue;
                 }
             }
-            
+
+            /*
+            PictureBox picNote = new()
+            {
+                BackColor = Color.White,
+                ForeColor = Color.White,
+                Width = noteSize,
+                Height = noteSize,
+                Top = picTarget.Top + picTarget.Height / 2 - noteSize / 2,
+                Left = (int)x,
+                BackgroundImage = Resources.marker,
+                BackgroundImageLayout = ImageLayout.Stretch,
+                Anchor = AnchorStyles.Bottom,
+            };
+            Controls.Add(picNote);
+            notes.Add(new(picNote, x, 1));
+            */
             
             // Starts on Left side of screen.
             if (spawnloc == 1) {
@@ -107,7 +121,7 @@ internal partial class FrmMain : Form
             }
             
         }
-        Timer tmrWaitThenPlay = new()
+            Timer tmrWaitThenPlay = new()
         {
             Interval = 1000,
             Enabled = true,
@@ -133,12 +147,11 @@ internal partial class FrmMain : Form
                 score.Miss();
                 note.StartDestructionTimer();
                 scoreBoard.StreakB = score.Streak.ToString();
+                scoreBoard.Health = score.Lives.ToString();
 
                 if (score.Lives <= 0)
                 {
                     //TODO: Create a GameOver screen that stops the song and gameplay. Has a button to restart the current song. Below is temporary and for testing.
-                    //Ending.Text = "GAME OVER";
-                    //Ending.Visible = true;
                 }
             }
         }
@@ -169,27 +182,28 @@ internal partial class FrmMain : Form
             }
             foreach (var note in notes)
             {
-                if (note.CheckHit(picTarget,m_left,m_right) )
+                if (note.CheckHit(L_range,m_left,m_right) || note.CheckHit(R_range,m_left,m_right))
                 {
-                    if (score.Streak < 10)
-                    {
-                        score.Add(10);
-                    }
-                    if (score.Streak >= 10 && score.Streak < 20)
-                    {
-                        score.Add(20);
-                    }
-                    if (score.Streak >= 20 && score.Streak < 30)
-                    {
-                        score.Add(30);
-                    }
                     if (score.Streak >= 30)
                     {
                         score.Add(40);
                     }
+                    else if (score.Streak >= 20)
+                    {
+                        score.Add(30);
+                    }
+                    else if (score.Streak >= 10)
+                    {
+                        score.Add(20);
+                    }
+                    else
+                    {
+                        score.Add(10);
+                    }
                     note.StartDestructionTimer();
                     scoreBoard.ScoreB = score.Amount.ToString();
                     scoreBoard.StreakB = score.Streak.ToString();
+                    scoreBoard.Health = score.Lives.ToString();
                     scoreBoard.MultiplierB = score.Multiplier.ToString();
                     break;
                 }

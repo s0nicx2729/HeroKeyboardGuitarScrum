@@ -48,6 +48,9 @@ namespace HeroKeyboardGuitar
             }
         }
 
+        /// <summary>
+        /// Holds the current multiplier for the score.
+        /// </summary>
         public string MultiplierB
         {
             get
@@ -57,6 +60,21 @@ namespace HeroKeyboardGuitar
             set
             {
                 this.MultiplierVal.Text = value;
+            }
+        }
+
+        /// <summary>
+        /// Holds the current health the player has.
+        /// </summary>
+        public string Health
+        {
+            get
+            {
+                return this.healthVal.Text;
+            }
+            set
+            {
+                this.healthVal.Text = value;
             }
         }
     }

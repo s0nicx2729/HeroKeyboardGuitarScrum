@@ -86,8 +86,8 @@ public class Note {
     }
 
     /// <summary>
-    /// Moves note to the left by amount. Send a positive amount and 
-    /// x position is subtracted by this amount. Also moves picture box.
+    /// Moves note to the left or right by amount. Send a positive amount and 
+    /// x position is subtracted/added by this amount. Also moves picture box.
     /// </summary>
     /// <param name="amount">Amount to move to the left</param>
     public void Move(double amount) {
@@ -108,11 +108,13 @@ public class Note {
     /// picture box and state will reflect this.
     /// </summary>
     /// <param name="picTarget">PictureBox object for player's target zone</param>
+    /// <param name="m_left">Check to make sure that the note doesnt get hit from the wrong mouse click</param>
+    /// <param name="m_right">Check to make sure that the note doesnt get hit from the wrong mouse click</param>
     /// <returns>True if note was just hit, false if it wasn't hit or was already previously hit</returns>
     public bool CheckHit(PictureBox picTarget, bool m_left, bool m_right) {
-        if (SpawnLoc == 0 && m_right == true)
+        if (SpawnLoc == 0 && m_right == true)   // Comes from the right.
         {
-            if (Pic.Left > picTarget.Left + (picTarget.Width / 2) && Pic.Left < picTarget.Left + (picTarget.Width * 1.75) && State == NoteState.TRAVELING)
+            if (Pic.Left < picTarget.Right && Pic.Left > picTarget.Left && State == NoteState.TRAVELING)
             {
                 Pic.BackgroundImage = Resources.marker_hit;
                 State = NoteState.HIT;
@@ -123,9 +125,9 @@ public class Note {
                 return false;
             }
         }
-        else if (SpawnLoc == 1 && m_left == true) 
+        else if (SpawnLoc == 1 && m_left == true)   // Comes from the left.
         {
-            if (Pic.Right < picTarget.Right + (picTarget.Width / 2) && Pic.Right > picTarget.Left - (picTarget.Width * 1.75) && State == NoteState.TRAVELING)
+            if (Pic.Right > picTarget.Left && Pic.Right < picTarget.Right && State == NoteState.TRAVELING)
             {
                 Pic.BackgroundImage = Resources.marker_hit;
                 State = NoteState.HIT;
@@ -146,12 +148,12 @@ public class Note {
     /// Checks if the player has missed this note. If so, the note will be marked as missed and
     /// picture box and state will reflect this.
     /// </summary>
-    /// <param name="picTarget">PictureBox object for player's target zone</param>
+    /// <param name="picTarget">PictureBox object for player's character.</param>
     /// <returns>True if note was just missed, false if it wasn't missed or was already previously missed</returns>
     public bool CheckMiss(PictureBox picTarget) {
-        if (SpawnLoc == 1)
+        if (SpawnLoc == 1)  // Comes from the left.
         {
-            if (Pic.Left > picTarget.Right && State == NoteState.TRAVELING)
+            if (Pic.Right > picTarget.Left && State == NoteState.TRAVELING)
             {
                 Pic.BackgroundImage = Resources.marker_miss;
                 State = NoteState.MISS;
@@ -162,9 +164,9 @@ public class Note {
                 return false;
             }
         }
-        else
+        else    // Comes from the right.
         {
-            if (Pic.Left < picTarget.Left && State == NoteState.TRAVELING)
+            if (Pic.Left < picTarget.Right && State == NoteState.TRAVELING)
             {
                 Pic.BackgroundImage = Resources.marker_miss;
                 State = NoteState.MISS;
