@@ -66,25 +66,6 @@ internal partial class FrmMain : Form
                     continue;
                 }
             }
-
-            /*
-            PictureBox picNote = new()
-            {
-                BackColor = Color.White,
-                ForeColor = Color.White,
-                Width = noteSize,
-                Height = noteSize,
-                Top = picTarget.Top + picTarget.Height / 2 - noteSize / 2,
-                Left = (int)x,
-                BackgroundImage = Resources.marker,
-                BackgroundImageLayout = ImageLayout.Stretch,
-                Anchor = AnchorStyles.Bottom,
-            };
-            Controls.Add(picNote);
-            notes.Add(new(picNote, x, 1));
-            */
-            
-            // Starts on Left side of screen.
             if (spawnloc == 1) {
                 PictureBox picNote = new()
                 {
@@ -151,6 +132,7 @@ internal partial class FrmMain : Form
 
                 if (score.Lives <= 0)
                 {
+                    scoreBoard.Health = "0";
                     //TODO: Create a GameOver screen that stops the song and gameplay. Has a button to restart the current song. Below is temporary and for testing.
                 }
             }

@@ -13,6 +13,10 @@ public class Score {
     /// Current streak, i.e. consecutive hit notes without a miss
     /// </summary>
     public int Streak { get; private set; }
+
+    /// <summary>
+    /// Current mulitplier. Is affected by the streak.
+    /// </summary>
     public int Multiplier { get; private set; }
 
     /// <summary>
