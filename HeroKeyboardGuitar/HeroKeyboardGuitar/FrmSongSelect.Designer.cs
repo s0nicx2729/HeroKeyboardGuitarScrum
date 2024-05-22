@@ -30,7 +30,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.Black;
+            BackColor = System.Drawing.Color.Ivory;
             ClientSize = new System.Drawing.Size(1211, 753);
             Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             Name = "FrmSongSelect";

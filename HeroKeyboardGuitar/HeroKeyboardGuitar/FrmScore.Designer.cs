@@ -42,7 +42,7 @@
             // 
             lblScoreB.AutoSize = true;
             lblScoreB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblScoreB.ForeColor = System.Drawing.Color.White;
+            lblScoreB.ForeColor = System.Drawing.Color.Black;
             lblScoreB.Location = new System.Drawing.Point(3, 36);
             lblScoreB.Name = "lblScoreB";
             lblScoreB.Size = new System.Drawing.Size(93, 36);
@@ -53,7 +53,7 @@
             // 
             lblStreakB.AutoSize = true;
             lblStreakB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblStreakB.ForeColor = System.Drawing.Color.White;
+            lblStreakB.ForeColor = System.Drawing.Color.Black;
             lblStreakB.Location = new System.Drawing.Point(12, 144);
             lblStreakB.Name = "lblStreakB";
             lblStreakB.Size = new System.Drawing.Size(100, 36);
@@ -64,7 +64,7 @@
             // 
             streakVal.AutoSize = true;
             streakVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            streakVal.ForeColor = System.Drawing.Color.White;
+            streakVal.ForeColor = System.Drawing.Color.Black;
             streakVal.Location = new System.Drawing.Point(31, 180);
             streakVal.Name = "streakVal";
             streakVal.Size = new System.Drawing.Size(32, 36);
@@ -75,7 +75,7 @@
             // 
             scoreVal.AutoSize = true;
             scoreVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            scoreVal.ForeColor = System.Drawing.Color.White;
+            scoreVal.ForeColor = System.Drawing.Color.Black;
             scoreVal.Location = new System.Drawing.Point(31, 72);
             scoreVal.Name = "scoreVal";
             scoreVal.Size = new System.Drawing.Size(32, 36);
@@ -86,7 +86,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.ForeColor = System.Drawing.Color.White;
+            label1.ForeColor = System.Drawing.Color.Black;
             label1.Location = new System.Drawing.Point(113, 36);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(136, 36);
@@ -97,7 +97,7 @@
             // 
             MultiplierVal.AutoSize = true;
             MultiplierVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            MultiplierVal.ForeColor = System.Drawing.Color.White;
+            MultiplierVal.ForeColor = System.Drawing.Color.Black;
             MultiplierVal.Location = new System.Drawing.Point(168, 72);
             MultiplierVal.Name = "MultiplierVal";
             MultiplierVal.Size = new System.Drawing.Size(32, 36);
@@ -108,7 +108,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label2.ForeColor = System.Drawing.Color.White;
+            label2.ForeColor = System.Drawing.Color.Black;
             label2.Location = new System.Drawing.Point(138, 144);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(100, 36);
@@ -119,7 +119,7 @@
             // 
             healthVal.AutoSize = true;
             healthVal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            healthVal.ForeColor = System.Drawing.Color.White;
+            healthVal.ForeColor = System.Drawing.Color.Black;
             healthVal.Location = new System.Drawing.Point(151, 180);
             healthVal.Name = "healthVal";
             healthVal.Size = new System.Drawing.Size(49, 36);
@@ -130,7 +130,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.Black;
+            BackColor = System.Drawing.Color.Ivory;
             ClientSize = new System.Drawing.Size(259, 242);
             ControlBox = false;
             Controls.Add(healthVal);

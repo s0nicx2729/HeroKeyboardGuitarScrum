@@ -158,12 +158,12 @@ internal partial class FrmMain : Form
             if (e.Button == MouseButtons.Left) 
             {
                 m_left = true;
-                picTarget.BackgroundImage = Resources.lps;
+                picTarget.Image = Resources.fightL;
             }
             if (e.Button == MouseButtons.Right)
             {
                 m_right = true;
-                picTarget.BackgroundImage = Resources.rps;
+                picTarget.Image = Resources.fightR;
             }
             foreach (var note in notes)
             {
@@ -201,7 +201,7 @@ internal partial class FrmMain : Form
 
     private void FrmMain_MouseUp(object sender, MouseEventArgs e)
     {
-        picTarget.BackgroundImage = Resources.idle;
+        picTarget.Image = Resources.idle2;
         if (e.Button == MouseButtons.Left)
         {
             m_left = true;

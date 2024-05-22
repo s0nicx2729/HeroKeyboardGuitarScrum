@@ -37,10 +37,11 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.hit;
+            pictureBox1.Image = Properties.Resources.defeat1;
             pictureBox1.Location = new System.Drawing.Point(268, 144);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(278, 186);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -48,7 +49,7 @@
             // 
             lbl_ending.AutoSize = true;
             lbl_ending.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lbl_ending.ForeColor = System.Drawing.Color.White;
+            lbl_ending.ForeColor = System.Drawing.Color.Black;
             lbl_ending.Location = new System.Drawing.Point(205, 110);
             lbl_ending.Name = "lbl_ending";
             lbl_ending.Size = new System.Drawing.Size(411, 31);
@@ -79,7 +80,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.Black;
+            BackColor = System.Drawing.Color.Ivory;
             ClientSize = new System.Drawing.Size(800, 450);
             Controls.Add(btn_exit);
             Controls.Add(btn_restart);
