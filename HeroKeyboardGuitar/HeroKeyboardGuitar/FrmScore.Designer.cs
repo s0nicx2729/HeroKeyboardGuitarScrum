@@ -113,7 +113,7 @@
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(100, 36);
             label2.TabIndex = 6;
-            label2.Text = "Heatlh";
+            label2.Text = "Health";
             // 
             // healthVal
             // 
