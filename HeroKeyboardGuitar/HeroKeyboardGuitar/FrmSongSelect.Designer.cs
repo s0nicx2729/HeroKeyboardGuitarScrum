@@ -22,15 +22,17 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             SuspendLayout();
             // 
             // FrmSongSelect
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Black;
-            ClientSize = new System.Drawing.Size(1060, 565);
+            ClientSize = new System.Drawing.Size(1211, 753);
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             Name = "FrmSongSelect";
             Text = "Select Song";
             WindowState = System.Windows.Forms.FormWindowState.Maximized;

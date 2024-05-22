@@ -12,10 +12,11 @@ namespace HeroKeyboardGuitar;
 internal partial class FrmMain : Form
 {
     private List<Note> notes;
-    private const float noteSpeed = 0.35f;
+    private const float noteSpeed = 0.4f;
     private Audio curSong;
     private Score score;
     FrmScore scoreBoard = new FrmScore();
+    Frm_ending ending = new Frm_ending();
     public bool m_right = false;
     public bool m_left = false;
 
@@ -132,8 +133,10 @@ internal partial class FrmMain : Form
 
                 if (score.Lives <= 0)
                 {
-                    scoreBoard.Health = "0";
-                    //TODO: Create a GameOver screen that stops the song and gameplay. Has a button to restart the current song. Below is temporary and for testing.
+                    ending.Show();
+                    Game.GetInstance().CurSong.Stop();
+                    scoreBoard.Close();
+                    this.Close();
                 }
             }
         }

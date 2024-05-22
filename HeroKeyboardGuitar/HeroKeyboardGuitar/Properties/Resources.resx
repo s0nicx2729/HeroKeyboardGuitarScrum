@@ -127,9 +127,6 @@
   <data name="pressed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pressed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="metal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\metal.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,11 +139,17 @@
   <data name="marker_miss" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\marker miss.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="title" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="idle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\idle.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="metal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\metal.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="marker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\marker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="title" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pop.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,13 +157,16 @@
   <data name="lps" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lps.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hit.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="classical" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\classical.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rnb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rnb.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="idle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\idle.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hit1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
