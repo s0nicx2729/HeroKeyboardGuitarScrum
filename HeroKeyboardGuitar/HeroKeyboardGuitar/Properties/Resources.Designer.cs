@@ -93,6 +93,26 @@ namespace HeroKeyboardGuitar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap idle {
+            get {
+                object obj = ResourceManager.GetObject("idle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lps {
+            get {
+                object obj = ResourceManager.GetObject("lps", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap marker {
             get {
                 object obj = ResourceManager.GetObject("marker", resourceCulture);
@@ -166,6 +186,16 @@ namespace HeroKeyboardGuitar.Properties {
         internal static System.Drawing.Bitmap rock {
             get {
                 object obj = ResourceManager.GetObject("rock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rps {
+            get {
+                object obj = ResourceManager.GetObject("rps", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

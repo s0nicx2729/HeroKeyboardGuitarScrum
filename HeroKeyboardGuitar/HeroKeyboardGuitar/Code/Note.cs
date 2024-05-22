@@ -1,5 +1,6 @@
 ﻿using HeroKeyboardGuitar.Properties;
 using System;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace HeroKeyboardGuitar;
@@ -22,6 +23,7 @@ public enum NoteState {
     /// Missed
     /// </summary>
     MISS,
+
 }
 
 /// <summary>
@@ -39,6 +41,11 @@ public class Note {
     /// </summary>
     public PictureBox Pic { get; private set; }
 
+    /// <summary>
+    /// The Spawn Location of the note. A 0 represents it spawns on the right and 1 represents it spawns on the left.
+    /// </summary>
+    public int SpawnLoc { get; set; }
+
     private double xPos;
 
     private Timer destructionTimer;
@@ -48,11 +55,12 @@ public class Note {
     /// </summary>
     /// <param name="pic">PictureBox for visual representation</param>
     /// <param name="xPos">Starting x position</param>
-    public Note(PictureBox pic, double xPos) {
+    public Note(PictureBox pic, double xPos, int SpawnLoc) {
         Pic = pic;
         State = NoteState.TRAVELING;
         this.xPos = xPos;
         this.destructionTimer = new Timer();
+        this.SpawnLoc = SpawnLoc;
     }
 
     /// <summary>
@@ -60,7 +68,7 @@ public class Note {
     /// </summary>
     public void StartDestructionTimer()
     {
-        this.destructionTimer.Interval = 500; // Set the interval (in milliseconds) for self-destruction
+        this.destructionTimer.Interval = 1; // Set the interval (in milliseconds) for self-destruction
         this.destructionTimer.Tick += DestructionTimer_Tick;
         this.destructionTimer.Start();
      }
@@ -83,8 +91,16 @@ public class Note {
     /// </summary>
     /// <param name="amount">Amount to move to the left</param>
     public void Move(double amount) {
-        xPos -= amount;
-        Pic.Left = (int)xPos;
+        if (SpawnLoc == 1)
+        {
+            xPos += amount;
+            Pic.Left = (int)xPos;
+        }
+        else
+        {
+            xPos -= amount;
+            Pic.Left = (int)xPos;
+        }
     }
 
     /// <summary>
@@ -93,13 +109,35 @@ public class Note {
     /// </summary>
     /// <param name="picTarget">PictureBox object for player's target zone</param>
     /// <returns>True if note was just hit, false if it wasn't hit or was already previously hit</returns>
-    public bool CheckHit(PictureBox picTarget) {
-        if (Pic.Left < picTarget.Left + picTarget.Width && Pic.Left + Pic.Width > picTarget.Left && State == NoteState.TRAVELING) {
-            Pic.BackgroundImage = Resources.marker_hit;
-            State = NoteState.HIT;
-            return true;
+    public bool CheckHit(PictureBox picTarget, bool m_left, bool m_right) {
+        if (SpawnLoc == 0 && m_right == true)
+        {
+            if (Pic.Left > picTarget.Left + (picTarget.Width / 2) && Pic.Left < picTarget.Left + (picTarget.Width * 1.75) && State == NoteState.TRAVELING)
+            {
+                Pic.BackgroundImage = Resources.marker_hit;
+                State = NoteState.HIT;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        else {
+        else if (SpawnLoc == 1 && m_left == true) 
+        {
+            if (Pic.Right < picTarget.Right + (picTarget.Width / 2) && Pic.Right > picTarget.Left - (picTarget.Width * 1.75) && State == NoteState.TRAVELING)
+            {
+                Pic.BackgroundImage = Resources.marker_hit;
+                State = NoteState.HIT;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
             return false;
         }
     }
@@ -111,13 +149,31 @@ public class Note {
     /// <param name="picTarget">PictureBox object for player's target zone</param>
     /// <returns>True if note was just missed, false if it wasn't missed or was already previously missed</returns>
     public bool CheckMiss(PictureBox picTarget) {
-        if (Pic.Left < picTarget.Left && State == NoteState.TRAVELING) {
-            Pic.BackgroundImage = Resources.marker_miss;
-            State = NoteState.MISS;
-            return true;
+        if (SpawnLoc == 1)
+        {
+            if (Pic.Left > picTarget.Right && State == NoteState.TRAVELING)
+            {
+                Pic.BackgroundImage = Resources.marker_miss;
+                State = NoteState.MISS;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        else {
-            return false;
+        else
+        {
+            if (Pic.Left < picTarget.Left && State == NoteState.TRAVELING)
+            {
+                Pic.BackgroundImage = Resources.marker_miss;
+                State = NoteState.MISS;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
