@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace HeroKeyboardGuitar
 {
+    /// <summary>
+    /// Form that displays the controls of the game
+    /// </summary>
     public partial class Controls : Form
     {
         public Controls()

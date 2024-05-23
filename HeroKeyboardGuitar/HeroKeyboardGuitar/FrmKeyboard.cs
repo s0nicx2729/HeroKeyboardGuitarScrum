@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace HeroKeyboardGuitar
 {
+    /// <summary>
+    /// Form that allows the user to set the keys for the left and right punch
+    /// </summary>
     public partial class FrmKeyboard : Form
     {
         public static char setLKey = 'a';

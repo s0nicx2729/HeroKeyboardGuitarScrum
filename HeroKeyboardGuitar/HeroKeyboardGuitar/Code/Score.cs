@@ -53,15 +53,6 @@ public class Score {
     }
 
     /// <summary>
-    /// Used to check if the player has reached the point of receiving a reward.
-    /// Currently not implemented
-    /// </summary>
-    public void CheckReward() {
-        // TODO: possibly make this a dictionary mapping genres to reward maps
-        //Game.GetRewardMap()
-    }
-
-    /// <summary>
     /// Add to the current score or streak
     /// </summary>
     /// <param name="amount">Amount to add</param>

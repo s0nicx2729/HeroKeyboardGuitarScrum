@@ -48,7 +48,7 @@ public class Note {
 
     private double xPos;
 
-    private Timer destructionTimer;
+    private readonly Timer destructionTimer;
 
     /// <summary>
     /// Ctor. Sets state to traveling

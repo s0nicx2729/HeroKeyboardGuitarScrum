@@ -59,7 +59,7 @@
             btn_exit.TabIndex = 7;
             btn_exit.Text = "Quit";
             btn_exit.UseVisualStyleBackColor = true;
-            btn_exit.Click += btn_exit_Click;
+            btn_exit.Click += Btn_exit_Click;
             // 
             // btn_restart
             // 
@@ -70,7 +70,7 @@
             btn_restart.TabIndex = 6;
             btn_restart.Text = "Play Again?";
             btn_restart.UseVisualStyleBackColor = true;
-            btn_restart.Click += btn_restart_Click;
+            btn_restart.Click += Btn_restart_Click;
             // 
             // pictureBox1
             // 
@@ -110,7 +110,7 @@
             label3.Size = new System.Drawing.Size(40, 15);
             label3.TabIndex = 11;
             label3.Text = "label3";
-            label3.Click += label3_Click;
+            label3.Click += Label3_Click;
             // 
             // label4
             // 

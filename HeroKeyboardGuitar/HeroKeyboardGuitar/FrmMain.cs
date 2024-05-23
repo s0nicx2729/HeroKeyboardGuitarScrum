@@ -16,9 +16,9 @@ internal partial class FrmMain : Form
     private const float noteSpeed = .7f;
     private Audio curSong;
     private Score score;
-    FrmScore scoreBoard = new FrmScore();
-    Frm_ending ending = new Frm_ending();
-    Frm_win win = new Frm_win();
+    readonly FrmScore scoreBoard = new();
+    readonly Frm_ending ending = new();
+    readonly Frm_win win = new();
     public bool m_right = false;
     public bool m_left = false;
     public int notesHit = 0;
@@ -123,7 +123,7 @@ internal partial class FrmMain : Form
         };
     }
 
-    private void tmrPlay_Tick(object sender, EventArgs e)
+    private void TmrPlay_Tick(object sender, EventArgs e)
     {
         int index = curSong.GetPosition();
         foreach (var note in notes)

@@ -5,13 +5,21 @@ using System.IO;
 using System.Linq;
 
 namespace HeroKeyboardGuitar;
-
+/// <summary>
+/// Contains the song's title, genre, file path, and audio.
+/// </summary>
 public class Song {
-    private string title;
+    private readonly string title;
+
+    /// <summary>
+    /// Contains the song's genre.
+    /// </summary>
     public GenreType Genre { get; private set; }
-    private Dictionary<int, Action> rewardMap;
-    private string filePath;
-    private List<Note> notes;
+    private readonly string filePath;
+
+    /// <summary>
+    /// Contains the song's audio.
+    /// </summary>
     public Audio Audio { get; private set; }
 
     public Song(string filePath, GenreType genre) {
@@ -20,14 +28,20 @@ public class Song {
         Audio = new(filePath);
         Genre = genre;
     }
-
+    /// <summary>
+    /// Plays the song.
+    /// </summary>
     public void Play() {
         Audio.Play();
     }
-
-    public void Restart() {
+    /// <summary>
+    /// Restarts the song.
+    /// </summary>
+    public static void Restart() {
     }
-
+    /// <summary>
+    /// Stops the song.
+    /// </summary>
     public void Stop() {
         Audio.Stop();
     }

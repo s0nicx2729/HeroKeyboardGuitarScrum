@@ -66,7 +66,7 @@
             btn_restart.TabIndex = 2;
             btn_restart.Text = "Restart?";
             btn_restart.UseVisualStyleBackColor = true;
-            btn_restart.Click += btn_restart_Click;
+            btn_restart.Click += Btn_restart_Click;
             // 
             // btn_exit
             // 
@@ -77,7 +77,7 @@
             btn_exit.TabIndex = 3;
             btn_exit.Text = "Quit";
             btn_exit.UseVisualStyleBackColor = true;
-            btn_exit.Click += btn_exit_Click;
+            btn_exit.Click += Btn_exit_Click;
             // 
             // Frm_ending
             // 

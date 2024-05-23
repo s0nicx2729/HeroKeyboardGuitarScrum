@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace HeroKeyboardGuitar
 {
+    /// <summary>
+    /// Form that displays the score, streak, multiplier, and health of the player.
+    /// </summary>
     public partial class FrmScore : Form
     {
         public FrmScore()

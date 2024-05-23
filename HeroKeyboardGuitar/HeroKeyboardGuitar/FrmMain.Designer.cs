@@ -37,7 +37,7 @@
             // tmrPlay
             // 
             tmrPlay.Interval = 50;
-            tmrPlay.Tick += tmrPlay_Tick;
+            tmrPlay.Tick += TmrPlay_Tick;
             // 
             // picTarget
             // 
@@ -55,9 +55,9 @@
             // 
             L_range.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             L_range.BackColor = System.Drawing.Color.FromArgb(192, 0, 0);
-            L_range.Location = new System.Drawing.Point(673, 429);
+            L_range.Location = new System.Drawing.Point(709, 429);
             L_range.Name = "L_range";
-            L_range.Size = new System.Drawing.Size(208, 36);
+            L_range.Size = new System.Drawing.Size(172, 36);
             L_range.TabIndex = 4;
             L_range.TabStop = false;
             // 
@@ -67,7 +67,7 @@
             R_range.BackColor = System.Drawing.Color.FromArgb(0, 0, 192);
             R_range.Location = new System.Drawing.Point(1061, 429);
             R_range.Name = "R_range";
-            R_range.Size = new System.Drawing.Size(208, 36);
+            R_range.Size = new System.Drawing.Size(172, 36);
             R_range.TabIndex = 6;
             R_range.TabStop = false;
             // 
@@ -89,8 +89,6 @@
             Load += FrmMain_Load;
             MouseDown += FrmMain_MouseDown;
             MouseUp += FrmMain_MouseUp;
-            KeyPress += FrmMain_KeyPress;
-            KeyUp += FrmMain_KeyUp;
             ((System.ComponentModel.ISupportInitialize)picTarget).EndInit();
             ((System.ComponentModel.ISupportInitialize)L_range).EndInit();
             ((System.ComponentModel.ISupportInitialize)R_range).EndInit();

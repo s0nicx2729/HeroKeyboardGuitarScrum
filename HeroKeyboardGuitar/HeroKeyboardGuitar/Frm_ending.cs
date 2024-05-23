@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace HeroKeyboardGuitar
 {
+    /// <summary>
+    /// Form that displays the defeat screen
+    /// </summary>
     public partial class Frm_ending : Form
     {
         public Frm_ending()
@@ -18,14 +21,14 @@ namespace HeroKeyboardGuitar
             TopMost = true;
         }
 
-        private void btn_restart_Click(object sender, EventArgs e)
+        private void Btn_restart_Click(object sender, EventArgs e)
         {
             FrmMain frmMain = new();
             frmMain.Show();
             this.Close();
         }
 
-        private void btn_exit_Click(object sender, EventArgs e)
+        private void Btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
