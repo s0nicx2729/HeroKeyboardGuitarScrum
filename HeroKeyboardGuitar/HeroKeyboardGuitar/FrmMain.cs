@@ -148,6 +148,9 @@ internal partial class FrmMain : Form
                 Controls.Remove(note.Pic);
                 note.Dispose();
             }
+            Game.GetInstance().CurSong.Stop();
+            scoreBoard.Close();
+            this.Close();
         }
     }
 
