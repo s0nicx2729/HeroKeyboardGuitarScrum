@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic;
+﻿using HeroKeyboardGuitar.Properties;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,13 +39,15 @@ namespace HeroKeyboardGuitar
         }
         private void Frm_win_Shown(object sender, EventArgs e)
         {
+            string exeRoot = AppDomain.CurrentDomain.BaseDirectory;
+            string projectRoot = Path.GetFullPath(Path.Combine(exeRoot, "..\\..\\.."));
+            highscore = File.ReadAllText(projectRoot + "\\Resources\\Highscore.txt");
 
-            highscore = File.ReadAllText(Properties.Resources.Highscore);
-
+                
             if (GameScore.Amount > Convert.ToInt32(highscore))
             {
                 highscore = GameScore.Amount.ToString();
-                File.WriteAllText(Properties.Resources.Highscore, highscore);
+                File.WriteAllText(projectRoot + "\\Resources\\Highscore.txt", highscore);
             }
 
 

@@ -68,7 +68,7 @@
             btn_restart.Name = "btn_restart";
             btn_restart.Size = new System.Drawing.Size(82, 22);
             btn_restart.TabIndex = 6;
-            btn_restart.Text = "Restart?";
+            btn_restart.Text = "Play Again?";
             btn_restart.UseVisualStyleBackColor = true;
             btn_restart.Click += btn_restart_Click;
             // 
@@ -127,6 +127,8 @@
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Ivory;
+            BackgroundImage = Properties.Resources.confetti_PNG86993;
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             ClientSize = new System.Drawing.Size(683, 354);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -136,6 +138,7 @@
             Controls.Add(btn_exit);
             Controls.Add(btn_restart);
             Controls.Add(lbl_ending);
+            DoubleBuffered = true;
             Name = "Frm_win";
             Text = "You Win!";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
