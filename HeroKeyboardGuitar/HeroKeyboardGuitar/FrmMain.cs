@@ -129,14 +129,24 @@ internal partial class FrmMain : Form
         foreach (var note in notes)
         {
             note.Move(tmrPlay.Interval * (noteSpeed * 1.3));
-
+            if (score.Lives > 6)
+            {
+                this.BackColor = System.Drawing.Color.Green;
+            }
+            if (score.Lives <= 6 && score.Lives > 3)
+            {
+                this.BackColor = System.Drawing.Color.Yellow;
+            }
+            if (score.Lives <= 3)
+            {
+                this.BackColor = System.Drawing.Color.Red;
+            }
             if (note.CheckMiss(picTarget))
             {
                 score.Miss();
                 note.StartDestructionTimer();
                 scoreBoard.StreakB = score.Streak.ToString();
                 scoreBoard.Health = score.Lives.ToString();
-
                 if (score.Lives <= 0)
                 {
                     ending.Show();
