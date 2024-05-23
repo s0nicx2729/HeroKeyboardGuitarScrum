@@ -1,6 +1,5 @@
 using AudioAnalyzing;
 using HeroKeyboardGuitar.Properties;
-using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -18,10 +17,8 @@ internal partial class FrmMain : Form
     private Score score;
     FrmScore scoreBoard = new FrmScore();
     Frm_ending ending = new Frm_ending();
-    Frm_win win = new Frm_win();
     public bool m_right = false;
     public bool m_left = false;
-    public int notesHit = 0;
 
 
     // for double buffering
@@ -151,10 +148,6 @@ internal partial class FrmMain : Form
                 Controls.Remove(note.Pic);
                 note.Dispose();
             }
-            
-            score.Accuracy = score.notesHit / score.totalHits;
-            win.GameScore = score;
-            win.Show();
             Game.GetInstance().CurSong.Stop();
             scoreBoard.Close();
             this.Close();
@@ -195,7 +188,6 @@ internal partial class FrmMain : Form
                     {
                         score.Add(10);
                     }
-                    notesHit++;
                     note.StartDestructionTimer();
                     scoreBoard.ScoreB = score.Amount.ToString();
                     scoreBoard.StreakB = score.Streak.ToString();
@@ -203,7 +195,7 @@ internal partial class FrmMain : Form
                     scoreBoard.MultiplierB = score.Multiplier.ToString();
                     break;
                 }
-                
+
             }
             m_left = false;
             m_right = false;

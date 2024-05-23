@@ -25,18 +25,6 @@ public class Score {
     public int Lives { get; private set; }
 
     /// <summary>
-    /// Current accuracy of the player. 
-    /// </summary>
-    public int Accuracy { get; set; }
-
-    /// <summary>
-    /// Current accuracy of the player. 
-    /// </summary>
-    public int totalHits { get; set; }
-
-    public int notesHit { get; set; }
-
-    /// <summary>
     /// initializes both amount and streak to 0
     /// </summary>
     public Score() {
@@ -44,9 +32,6 @@ public class Score {
         Streak = 0;
         Multiplier = 1;
         Lives = 10;
-        Accuracy = 0;
-        totalHits = 0;
-        notesHit = 0;
     }
 
     /// <summary>
@@ -81,8 +66,6 @@ public class Score {
         {
             Multiplier = 4;
         }
-        notesHit++;
-        totalHits++;
     }
 
     /// <summary>
@@ -92,6 +75,5 @@ public class Score {
         Streak = 0;
         Lives--;
         Multiplier = 1;
-        totalHits++;
     }
 }
