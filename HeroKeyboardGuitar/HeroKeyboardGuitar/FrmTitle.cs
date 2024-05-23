@@ -18,8 +18,8 @@ internal partial class FrmTitle : Form
 
     private void FrmTitle_Load(object sender, EventArgs e)
     {
-        btnStart.Left = Width / 2 - btnStart.Width / 2;
-        btnStart.Top = (int)(Height * 0.65);
+        //btnStart.Left = Width / 2 - btnStart.Width / 2;
+        //btnStart.Top = (int)(Height * 0.65);
     }
 
     private void HowTo_Click(object sender, EventArgs e)
