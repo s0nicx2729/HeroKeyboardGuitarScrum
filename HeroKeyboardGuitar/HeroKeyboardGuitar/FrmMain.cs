@@ -24,6 +24,7 @@ internal partial class FrmMain : Form
     public int notesHit = 0;
 
 
+
     // for double buffering
     protected override CreateParams CreateParams
     {
@@ -152,7 +153,7 @@ internal partial class FrmMain : Form
                 note.Dispose();
             }
             
-            score.Accuracy = score.notesHit / score.totalHits;
+            score.Accuracy = score.NotesHit / score.TotalNotes * 100;
             win.GameScore = score;
             win.Show();
             Game.GetInstance().CurSong.Stop();

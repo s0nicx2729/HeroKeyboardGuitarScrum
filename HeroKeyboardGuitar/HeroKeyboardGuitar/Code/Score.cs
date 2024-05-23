@@ -27,14 +27,17 @@ public class Score {
     /// <summary>
     /// Current accuracy of the player. 
     /// </summary>
-    public int Accuracy { get; set; }
+    public float Accuracy { get; set; }
 
     /// <summary>
-    /// Current accuracy of the player. 
+    /// The total amount of notes
     /// </summary>
-    public int totalHits { get; set; }
+    public float TotalNotes { get; set; }
 
-    public int notesHit { get; set; }
+    /// <summary>
+    /// The total amount of notes hit
+    /// </summary>
+    public float NotesHit { get; set; }
 
     /// <summary>
     /// initializes both amount and streak to 0
@@ -45,8 +48,8 @@ public class Score {
         Multiplier = 1;
         Lives = 10;
         Accuracy = 0;
-        totalHits = 0;
-        notesHit = 0;
+        TotalNotes = 0;
+        NotesHit = 0;
     }
 
     /// <summary>
@@ -81,8 +84,8 @@ public class Score {
         {
             Multiplier = 4;
         }
-        notesHit++;
-        totalHits++;
+        NotesHit++;
+        TotalNotes++;
     }
 
     /// <summary>
@@ -92,6 +95,6 @@ public class Score {
         Streak = 0;
         Lives--;
         Multiplier = 1;
-        totalHits++;
+        TotalNotes++;
     }
 }
