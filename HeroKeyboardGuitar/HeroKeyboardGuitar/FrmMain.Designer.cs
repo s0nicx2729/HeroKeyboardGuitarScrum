@@ -55,9 +55,9 @@
             // 
             L_range.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             L_range.BackColor = System.Drawing.Color.FromArgb(192, 0, 0);
-            L_range.Location = new System.Drawing.Point(672, 429);
+            L_range.Location = new System.Drawing.Point(709, 429);
             L_range.Name = "L_range";
-            L_range.Size = new System.Drawing.Size(209, 36);
+            L_range.Size = new System.Drawing.Size(172, 36);
             L_range.TabIndex = 4;
             L_range.TabStop = false;
             // 
@@ -67,7 +67,7 @@
             R_range.BackColor = System.Drawing.Color.FromArgb(0, 0, 192);
             R_range.Location = new System.Drawing.Point(1061, 429);
             R_range.Name = "R_range";
-            R_range.Size = new System.Drawing.Size(209, 36);
+            R_range.Size = new System.Drawing.Size(172, 36);
             R_range.TabIndex = 6;
             R_range.TabStop = false;
             // 

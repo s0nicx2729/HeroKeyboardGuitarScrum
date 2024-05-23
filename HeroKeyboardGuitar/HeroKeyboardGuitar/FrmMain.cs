@@ -48,7 +48,7 @@ internal partial class FrmMain : Form
         score = new();
         Random random = new();
         curSong = Game.GetInstance().CurSong;
-        const int noteSize = 200;
+        const int noteSize = 50;
         notes = new();
         foreach (var actionTime in curSong.ActionTimes)
         {   
@@ -71,16 +71,16 @@ internal partial class FrmMain : Form
                     continue;
                 }
             }
-            if (spawnloc == 1) {    // starts on the left of the screen.
+            if (spawnloc == 1) {
                 PictureBox picNote = new()
                 {
                     BackColor = Color.White,
                     ForeColor = Color.White,
-                    Width = noteSize / 2,
+                    Width = noteSize,
                     Height = noteSize,
                     Top = picTarget.Top + picTarget.Height / 2 - noteSize / 2,
                     Left = (int)x,
-                    BackgroundImage = Resources.enemy_L,
+                    BackgroundImage = Resources.marker,
                     BackgroundImageLayout = ImageLayout.Stretch,
                     Anchor = AnchorStyles.Bottom,
                 };
@@ -94,11 +94,11 @@ internal partial class FrmMain : Form
                 {
                     BackColor = Color.Black,
                     ForeColor = Color.Black,
-                    Width = noteSize / 2,
+                    Width = noteSize,
                     Height = noteSize,
                     Top = picTarget.Top + picTarget.Height / 2 - noteSize / 2,
                     Left = (int)x,
-                    BackgroundImage = Resources.enemy_R,
+                    BackgroundImage = Resources.marker,
                     BackgroundImageLayout = ImageLayout.Stretch,
                     Anchor = AnchorStyles.Bottom,
                 };
@@ -180,8 +180,6 @@ internal partial class FrmMain : Form
             {
                 if (note.CheckHit(L_range,m_left,m_right) || note.CheckHit(R_range,m_left,m_right))
                 {
-                    m_left = false; 
-                    m_right = false;
                     if (score.Streak >= 30)
                     {
                         score.Add(40);

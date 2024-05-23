@@ -55,7 +55,6 @@ public class Note {
     /// </summary>
     /// <param name="pic">PictureBox for visual representation</param>
     /// <param name="xPos">Starting x position</param>
-    /// <param name="SpawnLoc">The starting location for the note (left or right side of the screen).</param>
     public Note(PictureBox pic, double xPos, int SpawnLoc) {
         Pic = pic;
         State = NoteState.TRAVELING;
@@ -117,7 +116,7 @@ public class Note {
         {
             if (Pic.Left < picTarget.Right && Pic.Left > picTarget.Left && State == NoteState.TRAVELING)
             {
-                //Pic.BackgroundImage = Resources.marker_hit;
+                Pic.BackgroundImage = Resources.marker_hit;
                 State = NoteState.HIT;
                 return true;
             }
@@ -130,7 +129,7 @@ public class Note {
         {
             if (Pic.Right > picTarget.Left && Pic.Right < picTarget.Right && State == NoteState.TRAVELING)
             {
-                //Pic.BackgroundImage = Resources.marker_hit;
+                Pic.BackgroundImage = Resources.marker_hit;
                 State = NoteState.HIT;
                 return true;
             }
@@ -156,7 +155,7 @@ public class Note {
         {
             if (Pic.Right > picTarget.Left && State == NoteState.TRAVELING)
             {
-                //Pic.BackgroundImage = Resources.marker_miss;
+                Pic.BackgroundImage = Resources.marker_miss;
                 State = NoteState.MISS;
                 return true;
             }
@@ -169,7 +168,7 @@ public class Note {
         {
             if (Pic.Left < picTarget.Right && State == NoteState.TRAVELING)
             {
-                //Pic.BackgroundImage = Resources.marker_miss;
+                Pic.BackgroundImage = Resources.marker_miss;
                 State = NoteState.MISS;
                 return true;
             }
