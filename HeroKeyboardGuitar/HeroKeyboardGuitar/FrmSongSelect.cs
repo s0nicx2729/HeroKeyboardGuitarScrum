@@ -11,6 +11,7 @@ namespace HeroKeyboardGuitar
     {
         private readonly string SONGS_ROOT_PATH = Path.Combine(Application.StartupPath, "../../../Songs/");
         private readonly string IMAGES_ROOT_PATH = Path.Combine(Application.StartupPath, "../../../Images/");
+        public static float speed = .7f;
 
         public FrmSongSelect()
         {
@@ -64,13 +65,25 @@ namespace HeroKeyboardGuitar
 
                 left += size + spacing;
                 var filePath = songFilePath;
-                btnSong.Click += (e, sender) => {
+                btnSong.Click += (e, sender) =>
+                {
                     Game.SetCurSong(filePath, genre);
                     FrmMain frmMain = new();
                     frmMain.Show();
                 };
 
                 Controls.Add(btnSong);
+            }
+        }
+
+        private void btn_ConfirmSpeed_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                speed = float.Parse(speedBox.Text);
+            } catch (FormatException)
+            {
+                lbl_speedCheck.Visible = true;
             }
         }
     }

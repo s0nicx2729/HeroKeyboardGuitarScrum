@@ -13,12 +13,12 @@ namespace HeroKeyboardGuitar;
 internal partial class FrmMain : Form
 {
     private List<Note> notes;
-    private const float noteSpeed = .7f;
     private Audio curSong;
     private Score score;
     FrmScore scoreBoard = new FrmScore();
     Frm_ending ending = new Frm_ending();
     Frm_win win = new Frm_win();
+    private float noteSpeed = FrmSongSelect.speed;
     public bool m_right = false;
     public bool m_left = false;
     public int notesHit = 0;
