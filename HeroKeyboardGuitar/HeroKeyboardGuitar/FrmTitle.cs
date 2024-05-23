@@ -27,4 +27,10 @@ internal partial class FrmTitle : Form
         Controls frmHowTo = new();
         frmHowTo.Show();
     }
+
+    private void btnControls_Click(object sender, EventArgs e)
+    {
+        FrmKeyboard frmKeyboard = new();
+        frmKeyboard.Show();
+    }
 }

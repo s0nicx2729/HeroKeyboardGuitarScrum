@@ -26,6 +26,7 @@
         {
             btnStart = new System.Windows.Forms.Button();
             HowTo = new System.Windows.Forms.Button();
+            btnControls = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
             // btnStart
@@ -35,10 +36,9 @@
             btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             btnStart.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnStart.ForeColor = System.Drawing.Color.Black;
-            btnStart.Location = new System.Drawing.Point(495, 594);
-            btnStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnStart.Location = new System.Drawing.Point(433, 396);
             btnStart.Name = "btnStart";
-            btnStart.Size = new System.Drawing.Size(482, 87);
+            btnStart.Size = new System.Drawing.Size(422, 65);
             btnStart.TabIndex = 0;
             btnStart.Text = "Start";
             btnStart.UseVisualStyleBackColor = false;
@@ -51,26 +51,40 @@
             HowTo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             HowTo.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             HowTo.ForeColor = System.Drawing.Color.Black;
-            HowTo.Location = new System.Drawing.Point(495, 718);
-            HowTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            HowTo.Location = new System.Drawing.Point(433, 538);
             HowTo.Name = "HowTo";
-            HowTo.Size = new System.Drawing.Size(482, 87);
+            HowTo.Size = new System.Drawing.Size(422, 65);
             HowTo.TabIndex = 1;
             HowTo.Text = "How To Play";
             HowTo.UseVisualStyleBackColor = false;
             HowTo.Click += HowTo_Click;
             // 
+            // btnControls
+            // 
+            btnControls.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            btnControls.BackColor = System.Drawing.Color.FromArgb(192, 255, 255);
+            btnControls.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            btnControls.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnControls.ForeColor = System.Drawing.Color.Black;
+            btnControls.Location = new System.Drawing.Point(433, 467);
+            btnControls.Name = "btnControls";
+            btnControls.Size = new System.Drawing.Size(422, 65);
+            btnControls.TabIndex = 2;
+            btnControls.Text = "Controls";
+            btnControls.UseVisualStyleBackColor = false;
+            btnControls.Click += btnControls_Click;
+            // 
             // FrmTitle
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.title6;
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            ClientSize = new System.Drawing.Size(1405, 885);
+            ClientSize = new System.Drawing.Size(1229, 664);
+            Controls.Add(btnControls);
             Controls.Add(HowTo);
             Controls.Add(btnStart);
             DoubleBuffered = true;
-            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             Name = "FrmTitle";
             Text = "Hero Keyboard Guitar";
             WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -82,5 +96,6 @@
 
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button HowTo;
+        private System.Windows.Forms.Button btnControls;
     }
 }

@@ -215,6 +215,70 @@ internal partial class FrmMain : Form
         }
     }
 
+    private void FrmMain_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        if (e.KeyChar == FrmKeyboard.setLKey || e.KeyChar == FrmKeyboard.setRKey)
+        {
+            if (e.KeyChar == FrmKeyboard.setLKey)
+            {
+                m_left = true;
+                picTarget.Image = Resources.fightL;
+            }
+            if (e.KeyChar == FrmKeyboard.setRKey)
+            {
+                m_right = true;
+                picTarget.Image = Resources.fightR;
+            }
+            foreach (var note in notes)
+            {
+                if (note.CheckHit(L_range, m_left, m_right) || note.CheckHit(R_range, m_left, m_right))
+                {
+                    m_left = false;
+                    m_right = false;
+                    if (score.Streak >= 30)
+                    {
+                        score.Add(40);
+                    }
+                    else if (score.Streak >= 20)
+                    {
+                        score.Add(30);
+                    }
+                    else if (score.Streak >= 10)
+                    {
+                        score.Add(20);
+                    }
+                    else
+                    {
+                        score.Add(10);
+                    }
+                    notesHit++;
+                    note.StartDestructionTimer();
+                    scoreBoard.ScoreB = score.Amount.ToString();
+                    scoreBoard.StreakB = score.Streak.ToString();
+                    scoreBoard.Health = score.Lives.ToString();
+                    scoreBoard.MultiplierB = score.Multiplier.ToString();
+                    break;
+                }
+
+            }
+            m_left = false;
+            m_right = false;
+        }
+    }
+
+    private void FrmMain_KeyUp(object sender, KeyEventArgs e)
+    {
+        picTarget.Image = Resources.idle2;
+        if (e.KeyValue == FrmKeyboard.setLKey)
+        {
+            m_left = true;
+        }
+        if (e.KeyValue == FrmKeyboard.setRKey)
+        {
+            m_right = true;
+        }
+    }
+
     private void FrmMain_MouseUp(object sender, MouseEventArgs e)
     {
         picTarget.Image = Resources.idle2;
