@@ -113,6 +113,26 @@ namespace HeroKeyboardGuitar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap enemy_L {
+            get {
+                object obj = ResourceManager.GetObject("enemy_L", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap enemy_R {
+            get {
+                object obj = ResourceManager.GetObject("enemy_R", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap fightL {
             get {
                 object obj = ResourceManager.GetObject("fightL", resourceCulture);
@@ -282,6 +302,16 @@ namespace HeroKeyboardGuitar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap scoreb {
+            get {
+                object obj = ResourceManager.GetObject("scoreb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap title {
             get {
                 object obj = ResourceManager.GetObject("title", resourceCulture);
@@ -295,6 +325,16 @@ namespace HeroKeyboardGuitar.Properties {
         public static System.Drawing.Bitmap title6 {
             get {
                 object obj = ResourceManager.GetObject("title6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tut {
+            get {
+                object obj = ResourceManager.GetObject("tut", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

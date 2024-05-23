@@ -38,7 +38,7 @@ public class Audio {
         this.filePath = filePath;
         fileReader = new AudioFileReader(filePath);
         int sampleRate = fileReader.WaveFormat.SampleRate;
-        int sampleCount = (int)(fileReader.Length / fileReader.WaveFormat.BitsPerSample / 8);
+        int sampleCount = (int)(fileReader.Length / fileReader.WaveFormat.BitsPerSample / 6);
         int channelCount = fileReader.WaveFormat.Channels;
         var samplesList = new List<double>(sampleCount);
         var buffer = new float[sampleRate * channelCount];
@@ -54,9 +54,9 @@ public class Audio {
         ActionTimes = new();
         clusters = new();
         List<double> curCluster = new();
-        double THRES = 0.4;
+        double THRES = 0.3;
         bool inCluster = false;
-        const int MAX_TOLERANCE = 500;
+        const int MAX_TOLERANCE = 1500;
         int curTolerance = 0;
         int clusterStart = -1;
         for (int i = 0; i < samples.Length; i++) {

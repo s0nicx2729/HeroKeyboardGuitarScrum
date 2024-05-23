@@ -13,7 +13,7 @@ namespace HeroKeyboardGuitar;
 internal partial class FrmMain : Form
 {
     private List<Note> notes;
-    private const float noteSpeed = 0.4f;
+    private const float noteSpeed = .7f;
     private Audio curSong;
     private Score score;
     FrmScore scoreBoard = new FrmScore();
@@ -41,6 +41,8 @@ internal partial class FrmMain : Form
         InitializeComponent();
         scoreBoard.Show();
         scoreBoard.TopMost = true;
+        win.TopMost = true;
+        ending.TopMost = true;
     }
 
     public void FrmMain_Load(object sender, EventArgs e)
@@ -48,7 +50,7 @@ internal partial class FrmMain : Form
         score = new();
         Random random = new();
         curSong = Game.GetInstance().CurSong;
-        const int noteSize = 50;
+        const int noteSize = 200;
         notes = new();
         foreach (var actionTime in curSong.ActionTimes)
         {   
@@ -71,16 +73,16 @@ internal partial class FrmMain : Form
                     continue;
                 }
             }
-            if (spawnloc == 1) {
+            if (spawnloc == 1) {    // Starts on the left side of the screen.
                 PictureBox picNote = new()
                 {
                     BackColor = Color.White,
                     ForeColor = Color.White,
-                    Width = noteSize,
+                    Width = noteSize/2,
                     Height = noteSize,
                     Top = picTarget.Top + picTarget.Height / 2 - noteSize / 2,
                     Left = (int)x,
-                    BackgroundImage = Resources.marker,
+                    BackgroundImage = Resources.enemy_L,
                     BackgroundImageLayout = ImageLayout.Stretch,
                     Anchor = AnchorStyles.Bottom,
                 };
@@ -94,11 +96,11 @@ internal partial class FrmMain : Form
                 {
                     BackColor = Color.Black,
                     ForeColor = Color.Black,
-                    Width = noteSize,
+                    Width = noteSize/2,
                     Height = noteSize,
                     Top = picTarget.Top + picTarget.Height / 2 - noteSize / 2,
                     Left = (int)x,
-                    BackgroundImage = Resources.marker,
+                    BackgroundImage = Resources.enemy_R,
                     BackgroundImageLayout = ImageLayout.Stretch,
                     Anchor = AnchorStyles.Bottom,
                 };
@@ -180,6 +182,8 @@ internal partial class FrmMain : Form
             {
                 if (note.CheckHit(L_range,m_left,m_right) || note.CheckHit(R_range,m_left,m_right))
                 {
+                    m_left = false;
+                    m_right = false;
                     if (score.Streak >= 30)
                     {
                         score.Add(40);

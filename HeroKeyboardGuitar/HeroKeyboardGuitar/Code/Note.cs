@@ -116,7 +116,6 @@ public class Note {
         {
             if (Pic.Left < picTarget.Right && Pic.Left > picTarget.Left && State == NoteState.TRAVELING)
             {
-                Pic.BackgroundImage = Resources.marker_hit;
                 State = NoteState.HIT;
                 return true;
             }
@@ -129,7 +128,6 @@ public class Note {
         {
             if (Pic.Right > picTarget.Left && Pic.Right < picTarget.Right && State == NoteState.TRAVELING)
             {
-                Pic.BackgroundImage = Resources.marker_hit;
                 State = NoteState.HIT;
                 return true;
             }
@@ -155,7 +153,6 @@ public class Note {
         {
             if (Pic.Right > picTarget.Left && State == NoteState.TRAVELING)
             {
-                Pic.BackgroundImage = Resources.marker_miss;
                 State = NoteState.MISS;
                 return true;
             }
@@ -168,7 +165,6 @@ public class Note {
         {
             if (Pic.Left < picTarget.Right && State == NoteState.TRAVELING)
             {
-                Pic.BackgroundImage = Resources.marker_miss;
                 State = NoteState.MISS;
                 return true;
             }

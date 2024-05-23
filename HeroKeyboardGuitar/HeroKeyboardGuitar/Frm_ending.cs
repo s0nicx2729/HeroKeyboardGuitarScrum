@@ -15,6 +15,7 @@ namespace HeroKeyboardGuitar
         public Frm_ending()
         {
             InitializeComponent();
+            TopMost = true;
         }
 
         private void btn_restart_Click(object sender, EventArgs e)

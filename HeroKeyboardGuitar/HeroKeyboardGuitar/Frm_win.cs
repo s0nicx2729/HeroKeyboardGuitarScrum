@@ -23,6 +23,7 @@ namespace HeroKeyboardGuitar
         public Frm_win()
         {
             InitializeComponent();
+            TopMost = true;
             this.Shown += new EventHandler(Frm_win_Shown);
 
         }
