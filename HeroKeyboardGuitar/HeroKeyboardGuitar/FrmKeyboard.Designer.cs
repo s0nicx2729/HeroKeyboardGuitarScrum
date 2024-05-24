@@ -158,7 +158,7 @@
             // 
             button3.Location = new System.Drawing.Point(364, 98);
             button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(75, 23);
+            button3.Size = new System.Drawing.Size(89, 23);
             button3.TabIndex = 11;
             button3.Text = "Deuteranopia";
             button3.UseVisualStyleBackColor = true;
@@ -166,7 +166,7 @@
             // 
             // button4
             // 
-            button4.Location = new System.Drawing.Point(445, 98);
+            button4.Location = new System.Drawing.Point(459, 98);
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(75, 23);
             button4.TabIndex = 12;
