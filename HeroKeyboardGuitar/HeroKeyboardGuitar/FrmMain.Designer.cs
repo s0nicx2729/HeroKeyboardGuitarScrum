@@ -43,7 +43,7 @@
             // 
             picTarget.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             picTarget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            picTarget.Image = Properties.Resources.idle2;
+            picTarget.Image = Properties.Resources.idle21;
             picTarget.Location = new System.Drawing.Point(879, 230);
             picTarget.Name = "picTarget";
             picTarget.Size = new System.Drawing.Size(182, 193);

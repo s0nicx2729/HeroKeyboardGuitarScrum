@@ -151,7 +151,7 @@ namespace HeroKeyboardGuitar.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 400.
+        ///   Looks up a localized string similar to 600.
         /// </summary>
         public static string Highscore {
             get {
@@ -195,6 +195,36 @@ namespace HeroKeyboardGuitar.Properties {
         public static System.Drawing.Bitmap idle2 {
             get {
                 object obj = ResourceManager.GetObject("idle2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap idle21 {
+            get {
+                object obj = ResourceManager.GetObject("idle21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap idle3 {
+            get {
+                object obj = ResourceManager.GetObject("idle3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap idle4 {
+            get {
+                object obj = ResourceManager.GetObject("idle4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
