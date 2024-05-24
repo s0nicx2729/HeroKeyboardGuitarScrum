@@ -89,11 +89,14 @@
             Load += FrmMain_Load;
             MouseDown += FrmMain_MouseDown;
             MouseUp += FrmMain_MouseUp;
+            KeyPress += FrmMain_KeyPress;
+            KeyUp += FrmMain_KeyUp;
             ((System.ComponentModel.ISupportInitialize)picTarget).EndInit();
             ((System.ComponentModel.ISupportInitialize)L_range).EndInit();
             ((System.ComponentModel.ISupportInitialize)R_range).EndInit();
             ResumeLayout(false);
         }
+
 
         #endregion
         private System.Windows.Forms.Timer tmrPlay;
