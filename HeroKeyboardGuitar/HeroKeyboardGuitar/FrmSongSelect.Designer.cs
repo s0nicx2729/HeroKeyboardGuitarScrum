@@ -55,7 +55,7 @@
             btn_ConfirmSpeed.TabIndex = 2;
             btn_ConfirmSpeed.Text = "Confirm";
             btn_ConfirmSpeed.UseVisualStyleBackColor = true;
-            btn_ConfirmSpeed.Click += btn_ConfirmSpeed_Click;
+            btn_ConfirmSpeed.Click += Btn_ConfirmSpeed_Click;
             // 
             // lbl_speedCheck
             // 

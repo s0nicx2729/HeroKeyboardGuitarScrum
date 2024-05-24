@@ -12,7 +12,6 @@ namespace HeroKeyboardGuitar
         private readonly string SONGS_ROOT_PATH = Path.Combine(Application.StartupPath, "../../../Songs/");
         private readonly string IMAGES_ROOT_PATH = Path.Combine(Application.StartupPath, "../../../Images/");
         public static float speed = .7f;
-        private FrmMain frmMain;
 
         public FrmSongSelect()
         {
@@ -81,7 +80,7 @@ namespace HeroKeyboardGuitar
             }
         }
 
-        private void btn_ConfirmSpeed_Click(object sender, EventArgs e)
+        private void Btn_ConfirmSpeed_Click(object sender, EventArgs e)
         {
             try
             {
