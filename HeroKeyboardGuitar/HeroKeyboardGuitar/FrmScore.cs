@@ -80,5 +80,14 @@ namespace HeroKeyboardGuitar
                 this.healthVal.Text = value;
             }
         }
+
+        /// <summary>
+        /// Changes Background color based on health
+        /// </summary>
+        /// <param name="color"></param>
+        public void ChangeBackColor(Color color)
+        {
+            this.BackColor = color;
+        }
     }
 }

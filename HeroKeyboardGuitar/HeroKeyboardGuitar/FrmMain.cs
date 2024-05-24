@@ -35,6 +35,7 @@ internal partial class FrmMain : Form
             return cp;
         }
     }
+    private FrmScore frmScore;
 
     public FrmMain()
     {
@@ -43,6 +44,7 @@ internal partial class FrmMain : Form
         scoreBoard.TopMost = true;
         win.TopMost = true;
         ending.TopMost = true;
+        frmScore = scoreBoard;
     }
 
     public void FrmMain_Load(object sender, EventArgs e)
@@ -131,15 +133,15 @@ internal partial class FrmMain : Form
             note.Move(tmrPlay.Interval * (noteSpeed * 1.3));
             if (score.Lives > 6)
             {
-                this.BackColor = System.Drawing.Color.Green;
+                frmScore.ChangeBackColor(Color.Green);
             }
             if (score.Lives <= 6 && score.Lives > 3)
             {
-                this.BackColor = System.Drawing.Color.Yellow;
+                frmScore.ChangeBackColor(Color.Yellow);
             }
             if (score.Lives <= 3)
             {
-                this.BackColor = System.Drawing.Color.Red;
+                frmScore.ChangeBackColor(Color.Red);
             }
             if (note.CheckMiss(picTarget))
             {

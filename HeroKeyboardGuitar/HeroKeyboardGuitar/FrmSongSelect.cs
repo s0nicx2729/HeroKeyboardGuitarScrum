@@ -12,6 +12,7 @@ namespace HeroKeyboardGuitar
         private readonly string SONGS_ROOT_PATH = Path.Combine(Application.StartupPath, "../../../Songs/");
         private readonly string IMAGES_ROOT_PATH = Path.Combine(Application.StartupPath, "../../../Images/");
         public static float speed = .7f;
+        private FrmMain frmMain;
 
         public FrmSongSelect()
         {
@@ -35,23 +36,38 @@ namespace HeroKeyboardGuitar
                     genre = GenreType.COUNTRY;
                 }
 
-                // Construct the expected image file path
+                // Construct the expected image file path for the song title image
                 string imageFilePath = Path.Combine(IMAGES_ROOT_PATH, song + ".png");
 
-                // Load the image if it exists, otherwise use the genre-based image
-                Image backgroundImage;
-                if (File.Exists(imageFilePath))
+                // Construct the expected image file path for the song background
+                string imageFilePath2 = Path.Combine(IMAGES_ROOT_PATH, song + "2.png");
+
+                // Load the Title if it exists, otherwise use the genre-based image
+                Image TitleImage;
+                Image BackgroundImage;
+                if (File.Exists(imageFilePath) )
                 {
-                    backgroundImage = Image.FromFile(imageFilePath);
+                    TitleImage = Image.FromFile(imageFilePath);
                 }
                 else
                 {
-                    backgroundImage = Game.GetBg(genre);
+                    TitleImage = Game.GetBg(genre);
+                }
+
+                // Load the background if it exists, otherwise use the genre-based image
+                if (File.Exists(imageFilePath2))
+                {
+                    BackgroundImage = Image.FromFile(imageFilePath2);
+
+                }
+                else
+                {
+                    BackgroundImage = Game.GetBg(genre);
                 }
 
                 Button btnSong = new()
                 {
-                    BackgroundImage = backgroundImage,
+                    BackgroundImage = TitleImage,
                     BackgroundImageLayout = ImageLayout.Stretch,
                     Width = size,
                     Height = size,
@@ -70,6 +86,7 @@ namespace HeroKeyboardGuitar
                     Game.SetCurSong(filePath, genre);
                     FrmMain frmMain = new();
                     frmMain.Show();
+                    frmMain.BackgroundImage = BackgroundImage;
                 };
 
                 Controls.Add(btnSong);
