@@ -151,7 +151,7 @@ namespace HeroKeyboardGuitar.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 600.
+        ///   Looks up a localized string similar to 1700.
         /// </summary>
         public static string Highscore {
             get {

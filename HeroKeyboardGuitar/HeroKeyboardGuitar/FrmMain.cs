@@ -100,8 +100,8 @@ internal partial class FrmMain : Form
             {
                 PictureBox picNote = new()
                 {
-                    BackColor = Color.Black,
-                    ForeColor = Color.Black,
+                    BackColor = Color.White,
+                    ForeColor = Color.White,
                     Width = noteSize/2,
                     Height = noteSize,
                     Top = picTarget.Top + picTarget.Height / 2 - noteSize / 2,
