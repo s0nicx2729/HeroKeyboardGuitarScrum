@@ -37,6 +37,11 @@
             label3 = new System.Windows.Forms.Label();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             pictureBox2 = new System.Windows.Forms.PictureBox();
+            button1 = new System.Windows.Forms.Button();
+            button2 = new System.Windows.Forms.Button();
+            button3 = new System.Windows.Forms.Button();
+            button4 = new System.Windows.Forms.Button();
+            label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -129,12 +134,66 @@
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(202, 98);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(75, 23);
+            button1.TabIndex = 9;
+            button1.Text = "None";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(283, 98);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(75, 23);
+            button2.TabIndex = 10;
+            button2.Text = "Protanopia";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new System.Drawing.Point(364, 98);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(75, 23);
+            button3.TabIndex = 11;
+            button3.Text = "Deuteranopia";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new System.Drawing.Point(445, 98);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(75, 23);
+            button4.TabIndex = 12;
+            button4.Text = "Tritanopia";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(268, 80);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(198, 15);
+            label4.TabIndex = 13;
+            label4.Text = "Colorblind Options for Health Meter";
+            // 
             // FrmKeyboard
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Ivory;
             ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(label4);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
@@ -164,5 +223,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label4;
     }
 }

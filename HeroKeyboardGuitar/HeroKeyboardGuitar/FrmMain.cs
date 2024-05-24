@@ -1,5 +1,6 @@
 using AudioAnalyzing;
 using HeroKeyboardGuitar.Properties;
+using Microsoft.VisualBasic.Devices;
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace HeroKeyboardGuitar;
 internal partial class FrmMain : Form
 {
     private List<Note> notes;
-    private Audio curSong;
+    private AudioAnalyzing.Audio curSong;
     private Score score;
     FrmScore scoreBoard = new FrmScore();
     Frm_ending ending = new Frm_ending();
@@ -35,6 +36,9 @@ internal partial class FrmMain : Form
             return cp;
         }
     }
+
+    
+
     private FrmScore frmScore;
 
     public FrmMain()
@@ -173,17 +177,51 @@ internal partial class FrmMain : Form
         if (score.Lives > 6)
         {
             picTarget.Image = Resources.idle21;
-            frmScore.ChangeBackColor(Color.Green);
+            if (FrmKeyboard.State == CBState.NONE)
+            {
+                frmScore.ChangeBackColor(Color.Green);
+            }
+            if (FrmKeyboard.State == CBState.PROTANOPIA) 
+            {
+                frmScore.ChangeBackColor(Color.Tan);
+            }
+            if (FrmKeyboard.State == CBState.DEUTERANOPIA)
+            {
+                frmScore.ChangeBackColor(Color.Green);
+            }
+            if (FrmKeyboard.State == CBState.TRIANOPIA)
+            {
+                frmScore.ChangeBackColor(Color.Aqua);
+            }
         }
         else if (score.Lives >= 3)
         {
             picTarget.Image = Resources.idle3;
             frmScore.ChangeBackColor(Color.Yellow);
+            if (FrmKeyboard.State == CBState.TRIANOPIA)
+            {
+                frmScore.ChangeBackColor(Color.LightPink);
+            }
         }
         else
         {
             picTarget.Image = Resources.idle4;
-            frmScore.ChangeBackColor(Color.Red);
+            if (FrmKeyboard.State == CBState.NONE)
+            {
+                frmScore.ChangeBackColor(Color.Red);
+            }
+            if (FrmKeyboard.State == CBState.PROTANOPIA)
+            {
+                frmScore.ChangeBackColor(Color.Turquoise);
+            }
+            if (FrmKeyboard.State == CBState.DEUTERANOPIA)
+            {
+                frmScore.ChangeBackColor(Color.Blue);
+            }
+            if (FrmKeyboard.State == CBState.TRIANOPIA)
+            {
+                frmScore.ChangeBackColor(Color.Magenta);
+            }
         }
     }
 
