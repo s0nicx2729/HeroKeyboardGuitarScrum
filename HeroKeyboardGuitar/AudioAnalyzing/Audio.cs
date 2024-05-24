@@ -54,9 +54,9 @@ public class Audio {
         ActionTimes = new();
         clusters = new();
         List<double> curCluster = new();
-        double THRES = 0.3;
+        double THRES = .3;
         bool inCluster = false;
-        const int MAX_TOLERANCE = 1500;
+        const int MAX_TOLERANCE = 25;
         int curTolerance = 0;
         int clusterStart = -1;
         for (int i = 0; i < samples.Length; i++) {

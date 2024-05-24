@@ -44,7 +44,7 @@ namespace HeroKeyboardGuitar
 
                 // Load the Title if it exists, otherwise use the genre-based image
                 Image TitleImage;
-                Image BackgroundImage;
+                //Image BackgroundImage;
                 if (File.Exists(imageFilePath) )
                 {
                     TitleImage = Image.FromFile(imageFilePath);
@@ -52,17 +52,6 @@ namespace HeroKeyboardGuitar
                 else
                 {
                     TitleImage = Game.GetBg(genre);
-                }
-
-                // Load the background if it exists, otherwise use the genre-based image
-                if (File.Exists(imageFilePath2))
-                {
-                    BackgroundImage = Image.FromFile(imageFilePath2);
-
-                }
-                else
-                {
-                    BackgroundImage = Game.GetBg(genre);
                 }
 
                 Button btnSong = new()
@@ -86,7 +75,6 @@ namespace HeroKeyboardGuitar
                     Game.SetCurSong(filePath, genre);
                     FrmMain frmMain = new();
                     frmMain.Show();
-                    frmMain.BackgroundImage = BackgroundImage;
                 };
 
                 Controls.Add(btnSong);
@@ -101,6 +89,7 @@ namespace HeroKeyboardGuitar
             } catch (FormatException)
             {
                 lbl_speedCheck.Visible = true;
+                speed = 0.7f;
             }
         }
     }
