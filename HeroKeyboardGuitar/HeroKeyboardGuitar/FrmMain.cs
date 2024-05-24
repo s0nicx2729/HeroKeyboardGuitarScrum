@@ -131,21 +131,10 @@ internal partial class FrmMain : Form
         foreach (var note in notes)
         {
             note.Move(tmrPlay.Interval * (noteSpeed * 1.3));
-            if (score.Lives > 6)
-            {
-                frmScore.ChangeBackColor(Color.Green);
-            }
-            if (score.Lives <= 6 && score.Lives > 3)
-            {
-                frmScore.ChangeBackColor(Color.Yellow);
-            }
-            if (score.Lives <= 3)
-            {
-                frmScore.ChangeBackColor(Color.Red);
-            }
             if (note.CheckMiss(picTarget))
             {
                 score.Miss();
+                HealthCheck();
                 note.StartDestructionTimer();
                 scoreBoard.StreakB = score.Streak.ToString();
                 scoreBoard.Health = score.Lives.ToString();
@@ -173,6 +162,28 @@ internal partial class FrmMain : Form
             Game.GetInstance().CurSong.Stop();
             scoreBoard.Close();
             this.Close();
+        }
+    }
+
+    /// <summary>
+    /// Changes the player's character model based off their health.
+    /// </summary>
+    private void HealthCheck()
+    {
+        if (score.Lives > 6)
+        {
+            picTarget.Image = Resources.idle21;
+            frmScore.ChangeBackColor(Color.Green);
+        }
+        else if (score.Lives >= 3)
+        {
+            picTarget.Image = Resources.idle3;
+            frmScore.ChangeBackColor(Color.Yellow);
+        }
+        else
+        {
+            picTarget.Image = Resources.idle4;
+            frmScore.ChangeBackColor(Color.Red);
         }
     }
 
@@ -280,7 +291,7 @@ internal partial class FrmMain : Form
 
     private void FrmMain_KeyUp(object sender, KeyEventArgs e)
     {
-        picTarget.Image = Resources.idle2;
+        HealthCheck();
         if (e.KeyValue == FrmKeyboard.setLKey)
         {
             m_left = true;
@@ -293,7 +304,7 @@ internal partial class FrmMain : Form
 
     private void FrmMain_MouseUp(object sender, MouseEventArgs e)
     {
-        picTarget.Image = Resources.idle2;
+        HealthCheck();
         if (e.Button == MouseButtons.Left)
         {
             m_left = true;
